@@ -1,5 +1,5 @@
-// const withPWA = require('next-pwa');
-import withPWA from 'next-pwa';
+const withPWA = await import('next-pwa');
+// import withPWA from 'next-pwa';
 
 module.exports = withPWA({
   pwa: {
