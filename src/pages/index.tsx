@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Home = (): React.ReactNode => {
+const Feed = (): React.ReactNode => {
   return <></>;
 };
 
-export default Home;
+export default Feed;
