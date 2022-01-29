@@ -372,3 +372,7 @@ button:hover, a:hover {
 .points-title {
   font-size: 50px;
 }
+
+.rekk-form-container {
+  padding: 20px;
+}

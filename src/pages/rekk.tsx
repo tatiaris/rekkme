@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from '../components/common/Navbar';
+import { getRekkData } from '../components/Helper';
 
-const Rekk = (): React.ReactNode => {
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
-  const [url, setUrl] = useState('');
+const Rekk = (props): React.ReactNode => {
+  const [processedRekkData, setProcessedRekkData] = useState({});
 
   useEffect(() => {
     if (window) {
@@ -11,17 +11,15 @@ const Rekk = (): React.ReactNode => {
       const title = queryParams.get('title');
       const text = queryParams.get('text');
       const url = queryParams.get('url');
-      setTitle(title);
-      setText(text);
-      setUrl(url);
-    } else {
-      setTitle('Rekk');
+      const rawRekkData = { title, text, url };
+      getRekkData(rawRekkData, setProcessedRekkData);
     }
   }, []);
 
   return (
     <>
-      Rekk Page: {title}, {text}, {url}
+      <Navbar userSession={props.userSession} pageTitle="New Rekk" />
+      <div className="rekk-form-container">{props.userSession.username}</div>
     </>
   );
 };

@@ -157,3 +157,28 @@ export const signupUser = (newUser, password, setSignupFailed, redirect = '/') =
       setSignupFailed(true);
     });
 };
+
+export const getRekkData = (rawData, setProcessedRekkData) => {
+  // fetch(`/api/rawrecc`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify(rawData)
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     setProcessedRekkData(data);
+  //   })
+  //   .catch((error) => {
+  //     console.error('Error:', error);
+  //   });
+  setProcessedRekkData({
+    url: 'https://open.spotify.com/track/7CoMBpPTwQi2wPT0U0Nr9b',
+    category: 'Song',
+    title: `State Lines`,
+    artist: 'Novo Amor',
+    description: `This song reminds me of our Wyoming trip!`,
+    image: 'https://i1.sndcdn.com/artworks-000378864174-wqiyao-t500x500.jpg'
+  });
+};
