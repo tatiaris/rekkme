@@ -1,6 +1,6 @@
 {
   "name": "Rekkme",
-  "short_name": "Next PWA",
+  "short_name": "Rekkme",
   "icons": [
     {
       "src": "/logos/icon-192x192.png",
@@ -15,7 +15,7 @@
     }
   ],
   "share_target": {
-    "action": "/share-target/",
+    "action": "/rekk",
     "method": "GET",
     "params": {
       "title": "title",
