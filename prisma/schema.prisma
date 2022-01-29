@@ -18,8 +18,8 @@ model user {
   kos           Int             @default(0)
   friends       String[]
   lastlogin     DateTime        @default(now())
-  comments      comments[]
-  userrekqueues userrekqueues[]
+  userrekqueue  userrekqueue    @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  userrekqueueid String         @db.ObjectId
 }
 
 model auth {
@@ -37,27 +37,24 @@ model reks {
   id              String         @id @default(dbgenerated()) @map("_id") @db.ObjectId
   touserid        String         @db.ObjectId
   fromuserid      String         @db.ObjectId
-  category        categories     @relation(fields: [categoryid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  category        category       @relation(fields: [categoryid], references: [id], onDelete: NoAction, onUpdate: NoAction)
   categoryid      String         @db.ObjectId
   content         String
   wager           Int            @default(0)
   createdat       DateTime       @default(now())
-  comments        comments[]
-  rekresults      rekresults[]
-  userrekqueues   userrekqueues? @relation(fields: [userrekqueuesId], references: [id])
-  userrekqueuesId String?        @db.ObjectId
+  comments        comment[]
 }
 
-model comments {
+model comment {
   id      String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   message String
-  rek     reks   @relation(fields: [rekid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  rek     rek   @relation(fields: [rekid], references: [id], onDelete: NoAction, onUpdate: NoAction)
   rekid   String @db.ObjectId
   user    user   @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
   userid  String @db.ObjectId
 }
 
-model rekresults {
+model rekresult {
   id        String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
   rek       reks     @relation(fields: [rekid], references: [id], onDelete: Cascade, onUpdate: Cascade)
   rekid     String   @db.ObjectId
@@ -66,17 +63,14 @@ model rekresults {
   createdat DateTime @default(now())
 }
 
-model userrekqueues {
+model userrekqueue {
   id     String @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  user   user   @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  userid String
-  reks   reks[]
+  reks   String[]
 }
 
-model categories {
+model category {
   id   String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   name String
-  reks reks[]
 }
 
 ///model tags {
