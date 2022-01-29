@@ -304,7 +304,7 @@ button:hover, a:hover {
   background-color: var(--secondary-bg-color);
 }
 .close-btn-container {
-  padding: 15px 25px !important;
+  padding: 15px !important;
 }
 
 .feed-container {
@@ -346,4 +346,29 @@ button:hover, a:hover {
 
 .page-title {
   color: var(--heading-text-color);
+}
+
+.user-page-container {
+  padding: 0 20px;
+}
+.personal-section {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile-pic-container {
+  display: flex;
+  justify-content: center;
+}
+.profile-pic-container img {
+  overflow: hidden;
+  border-radius: 50%;
+}
+.points-container {
+  text-align: center;
+  color: var(--regular-text-color);
+}
+.points-title {
+  font-size: 50px;
 }
