@@ -40,7 +40,7 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
     if (props.userSession && props.userSession['id'] !== '0') {
       return (
         <div className="hamburger-menu">
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div className="close-btn-container" style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <button className="icon-btn" onClick={() => setShowMenu(false)}>
               <img width={40} height={40} src="/icons/close.svg" alt="" />
             </button>
@@ -49,21 +49,21 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           <a href={`/queue`}>Queue</a>
           <a href="/">Community</a>
           <a href="/leaderboard">Leaderboards</a>
-          <a href="/charts">Charts</a>
+          <a href="/charts">Discover</a>
           <a href="/logout">Log Out</a>
         </div>
       );
     } else {
       return (
         <div className="hamburger-menu">
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div className="close-btn-container" style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <button className="icon-btn" onClick={() => setShowMenu(false)}>
               <img width={40} height={40} src="/icons/close.svg" alt="" />
             </button>
           </div>
           <a href="/">Community</a>
           <a href="/leaderboard">Leaderboard</a>
-          <a href="/charts">Charts</a>
+          <a href="/charts">Discover</a>
           <a href="/login">Log In</a>
           <a href="/signup">Sign Up</a>
         </div>
