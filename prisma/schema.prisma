@@ -14,6 +14,10 @@ model user {
   fname    String
   lname    String
   username String
+  rekpoints Int @default (0)
+  kos      Int @default (0)
+  friends  user[]
+  lastlogin DateTime @default (now())
 }
 
 model auth {
@@ -25,4 +29,60 @@ model auth {
 model admin {
   id  String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   uid String @unique
+}
+
+model reks {
+  id         String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  touser     user @relation(fields: [touserid], references: [id])
+  touserid   String
+  fromuser   user @relation(fields: [fromuserid], references: [id])
+  fromuserid String
+  category   Category @relation(fields: [categoryid], references: [id])
+  categoryid String
+  content    String   @db.Text
+  wager      Int @default(0)
+  createdat  DateTime @default(now())
+}
+
+model comments {
+  id         String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  message    String @db.Text
+  rek        rek @relation(fields: [rekid], references: [id])
+  rekid      String
+  user       user @relation(fields: [userid], references: [id])
+  userid     String
+}
+
+model rekresults {
+  id         String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  rek        @relation(fields: [rekid], references: [id])
+  rekid      String
+  result     Int @default(0)
+  ko         Boolean @default(false)
+  createdat  DateTime @default(now())
+}
+
+model userrekqueues {
+  id         String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  user       @relation(fields: [userid], references: [id])
+  userid     String
+  reks       reks[]
+}
+
+model categories {
+  id         String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  name       String
+}
+
+model tags {
+  id         String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  namme      String
+}
+
+model rektaglinks {
+  tag        @relation(fields: [tagid], references: [id])
+  tagid      String
+  rek        @relation(fields: [rekid], references: [id])
+  rekid
+  @@id([tagid, rekid])
 }
