@@ -323,3 +323,6 @@ button:hover, a:hover {
   justify-content: space-between;
   padding: 15px 10px;
 }
+.page-title {
+  color: var(--heading-text-color);
+}

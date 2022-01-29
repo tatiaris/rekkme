@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           <img width={30} height={30} src="/icons/search.svg" alt="" />
         </button>
       </div>
-      <div className="flex-center">{props.pageTitle}</div>
+      <div className="flex-center page-title">{props.pageTitle}</div>
       <div style={{ width: '75px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
         <button onClick={() => setShowMenu(true)} className="icon-btn vertical-center">
           <img width={30} height={30} src="/icons/hamburger.svg" alt="" />
