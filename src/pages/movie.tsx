@@ -15,7 +15,7 @@ const Movie = (): React.ReactNode => {
     <>
       <StringInput config={{ name: 'name', label: 'Name', type: 'text', placeholder: 'Rick & Morty' }} updateFunc={setMovieName} />
       <div>{movies}</div>
-      <button onClick={getMovie}>Activate Lasers</button>
+      <button onClick={getMovie}>Go!</button>
     </>
   );
 };
