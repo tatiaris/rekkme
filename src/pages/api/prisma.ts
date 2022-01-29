@@ -14,6 +14,18 @@ export const findOneObject = async (collection: string, query) => {
   }
 };
 
+export const findMultipleObjects = async (collection: string, query) => {
+  try {
+    await prisma.$connect();
+    const object = await prisma[collection].findMany({ where: query });
+    await prisma.$disconnect();
+    return object;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
 export const insertOneObject = async (collection: string, newObject) => {
   try {
     await prisma.$connect();
