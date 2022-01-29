@@ -9,11 +9,17 @@ datasource db {
 }
 
 model user {
-  id       String @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  email    String @unique
-  fname    String
-  lname    String
-  username String
+  id            String          @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  email         String          @unique
+  fname         String
+  lname         String
+  username      String
+  rekpoints     Int             @default(0)
+  kos           Int             @default(0)
+  friends       String[]
+  lastlogin     DateTime        @default(now())
+  comments      comments[]
+  userrekqueues userrekqueues[]
 }
 
 model auth {
@@ -26,3 +32,62 @@ model admin {
   id  String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   uid String @unique
 }
+
+model reks {
+  id              String         @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  touserid        String         @db.ObjectId
+  fromuserid      String         @db.ObjectId
+  category        categories     @relation(fields: [categoryid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  categoryid      String         @db.ObjectId
+  content         String
+  wager           Int            @default(0)
+  createdat       DateTime       @default(now())
+  comments        comments[]
+  rekresults      rekresults[]
+  userrekqueues   userrekqueues? @relation(fields: [userrekqueuesId], references: [id])
+  userrekqueuesId String?        @db.ObjectId
+}
+
+model comments {
+  id      String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  message String
+  rek     reks   @relation(fields: [rekid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  rekid   String @db.ObjectId
+  user    user   @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  userid  String @db.ObjectId
+}
+
+model rekresults {
+  id        String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  rek       reks     @relation(fields: [rekid], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  rekid     String   @db.ObjectId
+  result    Int      @default(0)
+  ko        Boolean  @default(false)
+  createdat DateTime @default(now())
+}
+
+model userrekqueues {
+  id     String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  user   user   @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  userid String
+  reks   reks[]
+}
+
+model categories {
+  id   String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  name String
+  reks reks[]
+}
+
+///model tags {
+///  id         String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+///  namme      String
+///}
+
+///model rektaglinks {
+///  tag        tags @relation(fields: [tagid], references: [id])
+///  tagid      String @db.ObjectId
+///  rek        reks @relation(fields: [rekid], references: [id])
+///  rekid      String @db.ObjectId
+///  @@id([tagid, rekid])
+///}
