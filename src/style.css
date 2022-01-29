@@ -288,6 +288,7 @@ button:hover, a:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
+  background-color: var(--main-bg-color);
 }
 .hamburger-menu a, .hamburger-menu div {
   font-size: 24px;
@@ -301,9 +302,6 @@ button:hover, a:hover {
 }
 .hamburger-menu a:nth-child(2n) {
   background-color: var(--secondary-bg-color);
-}
-.hamburger-menu a:nth-child(2n + 1) {
-  background-color: var(--main-bg-color);
 }
 
 .feed-container {
