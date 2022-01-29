@@ -1,28 +1,23 @@
 import { useState } from 'react';
-import useSWR from 'swr';
 import StringInput from '../components/ui/StringInput';
 
-const Movie = (): React.ReactNode => {
-  const [movies, setMovies] = useState([]);
+const Music = (): React.ReactNode => {
+  const [songs, setSongs] = useState([]);
+  const [songName, setSongName] = useState('');
 
-  function getSong(name) {
-    const { data, error } = useSWR(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&query=` + name, fetch);
-    if (error) return <div>failed to load</div>;
-    if (!data) return <div>loading...</div>;
-    data.json().then((jsonData) => {
-      jsonData.results.forEach((movie) => {
-        if (!movies.find((m) => m.title === movie.title)) {
-          const joined = movies.concat({
-            title: movie?.title || movie?.original_title || 'No Title Found',
-            description: movie?.overview || 'No Description Found'
-          });
-          setMovies(joined);
-        }
-      });
-    });
+  async function getSongs() {
+    const res = await fetch(`/api/music/${songName}`);
+    const resjson = await res.json();
+    console.log(resjson.session);
+    setSongs(resjson.session.map((item) => item + ','));
   }
-
-  return <StringInput config={{ name: 'name', label: 'Song Title', type: 'text', placeholder: 'Rick & Morty' }} updateFunc={getSong} />;
+  return (
+    <>
+      <StringInput config={{ name: 'name', label: 'Name', type: 'text', placeholder: 'Hello' }} updateFunc={setSongName} />
+      <div>{songs}</div>
+      <button onClick={getSongs}>Go!</button>
+    </>
+  );
 };
 
-export default Movie;
+export default Music;
