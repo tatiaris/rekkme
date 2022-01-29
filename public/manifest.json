@@ -1,0 +1,22 @@
+{
+  "name": "Rekkme",
+  "short_name": "Next PWA",
+  "icons": [
+    {
+      "src": "/logos/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+
+    {
+      "src": "/logos/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#2F1C4C",
+  "background_color": "#2F1C4C",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
