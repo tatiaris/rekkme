@@ -315,6 +315,7 @@ button:hover, a:hover {
 }
 
 .rekkcard {
+  border-radius: 5px;
   font-size: 16px;
   color: var(--regular-text-color);
   background-color: var(--secondary-bg-color);
