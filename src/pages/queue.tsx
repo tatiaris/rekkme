@@ -17,7 +17,7 @@ const Queue = (props): React.ReactNode => {
   console.log(props.userSession);
   return (
     <>
-      <Navbar userSession={props.userSession} pageTitle="Community" />
+      <Navbar userSession={props.userSession} pageTitle="Queue" />
       <div className="feed-container">
         {queueList.map((queueItem, i) => (
           <QueueCard content={queueItem} order={i} key={i} />
