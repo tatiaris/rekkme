@@ -8,31 +8,36 @@ const Discover = (props): React.ReactNode => {
       image: 'https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/8d/dd/5c/8ddd5c28-adfa-699d-9df5-750a48ae8320/source/600x600bb.jpg',
       maintext: 'drivers license',
       num: 988,
-      secondarytext: 'Olivia Rodrigo'
+      secondarytext: 'Olivia Rodrigo',
+      link: 'https://open.spotify.com/track/7lPN2DXiMsVn7XUKtOW1CS?autoplay=true'
     },
     {
       image: 'https://is3-ssl.mzstatic.com/image/thumb/Music115/v4/e0/c0/ba/e0c0baf8-0e97-d111-dd17-6b90d9c195b2/source/600x600bb.jpg',
       maintext: 'STAY',
       num: 950,
-      secondarytext: 'The Kid & Justin Bieber'
+      secondarytext: 'The Kid & Justin Bieber',
+      link: 'https://open.spotify.com/track/5PjdY0CKGZdEuoNab3yDmX?si=e68aef2066324f00'
     },
     {
       image: 'https://is4-ssl.mzstatic.com/image/thumb/Music125/v4/4c/54/39/4c5439cc-43c6-c470-185c-2b18e521e5a0/source/600x600bb.jpg',
       maintext: 'Levitating',
       num: 921,
-      secondarytext: 'Dua Lipa'
+      secondarytext: 'Dua Lipa',
+      link: 'https://open.spotify.com/track/5nujrmhLynf4yMoMtj8AQF?si=b97c738adf89425b'
     },
     {
       image: 'https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/a7/28/b2/a728b2bf-e6be-9340-ba7d-97506e5e2b0c/source/600x600bb.jpg',
       maintext: 'Easy On Me',
       num: 900,
-      secondarytext: 'Adele'
+      secondarytext: 'Adele',
+      link: 'https://open.spotify.com/track/0gplL1WMoJ6iYaPgMCL0gX?si=ba6f7467700f4092'
     },
     {
       image: 'https://is3-ssl.mzstatic.com/image/thumb/Music115/v4/6e/99/32/6e993284-52c0-7fca-01ae-4624539334ac/source/600x600bb.jpg',
       maintext: 'Up',
       num: 891,
-      secondarytext: 'Cardi B'
+      secondarytext: 'Cardi B',
+      link: 'https://open.spotify.com/track/1XXimziG1uhM0eDNCZCrUl?si=b3390242cc0d4f60'
     },
     {
       image: 'https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/60/0e/68/600e682f-f76d-489d-b49d-ecd02dd8baa7/source/600x600bb.jpg',
@@ -104,9 +109,14 @@ const Discover = (props): React.ReactNode => {
             image: cont.image,
             maintext: cont.maintext,
             secondarytext: cont.secondarytext,
+            link: cont.link || '',
             rank: i
           };
-          return <TopSongCard key={i} content={dic} />;
+          return (
+            <a style={{ color: 'white', textDecoration: 'none' }} key={i} href={dic.link} rel="noreferrer" target="_blank">
+              <TopSongCard key={i} content={dic} />
+            </a>
+          );
         })}
       </div>
     </>
