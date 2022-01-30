@@ -159,7 +159,7 @@ export const signupUser = (newUser, password, setSignupFailed, redirect = '/') =
 };
 
 export const getRekkData = (rawData, setProcessedRekkData) => {
-  // fetch(`/api/rawrecc`, {
+  // fetch(`/api/magic`, {
   //   method: 'POST',
   //   headers: {
   //     'Content-Type': 'application/json'
@@ -178,6 +178,7 @@ export const getRekkData = (rawData, setProcessedRekkData) => {
     category: 'Song',
     title: `State Lines`,
     artist: 'Novo Amor',
+    tags: [],
     description: `This song reminds me of our Wyoming trip!`,
     image: 'https://i1.sndcdn.com/artworks-000378864174-wqiyao-t500x500.jpg'
   });

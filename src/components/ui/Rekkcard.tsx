@@ -32,7 +32,7 @@ export const RekkCard: React.FC<RekkCardProps> = (props) => {
         <div style={{ textAlign: 'right' }}>
           <span style={{ fontSize: '14px' }}>{content.date}</span>
           <div style={{ height: '5px' }}></div>
-          <img width="80px" src={content.image} alt="" />
+          <img width="80px" src={content.image} alt="" style={{ borderRadius: '5px' }} />
         </div>
       </div>
       <div className="action-btns-container">
