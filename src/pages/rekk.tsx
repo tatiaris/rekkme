@@ -26,8 +26,6 @@ const Rekk = (props): React.ReactNode => {
     }
   }, []);
 
-  console.log(processedRekkData);
-
   const addRecommendee = (id): void => {
     setRecommendeeList([...recommendeeList, id]);
   };
