@@ -4,6 +4,12 @@ import axios from 'axios';
 import { convert } from 'html-to-text';
 import language from '@google-cloud/language';
 
+enum Dir {
+  P = 'PLAIN_TEXT',
+  T = 'TYPE_UNSPECIFIED',
+  H = 'HTML'
+}
+
 const handler = nextConnect();
 
 handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
@@ -37,11 +43,11 @@ handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     const document = {
-      content: magictext,
-      type: 'PLAIN_TEXT'
+      content: magictext as string,
+      type: Dir.P
     };
 
-    const entities = await client.analyzeEntities({ document });
+    const entities = await client.analyzeEntities({ document: document });
 
     // if (realurl) {
     //   (async () => {
