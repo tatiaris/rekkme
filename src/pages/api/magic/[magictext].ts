@@ -47,7 +47,13 @@ handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
       type: Dir.P
     };
 
+    console.log(document);
+
     const entities = await client.analyzeEntities({ document: document });
+
+    console.log(entities);
+
+    console.log(entities[0].entities);
 
     // if (realurl) {
     //   (async () => {
