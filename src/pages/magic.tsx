@@ -6,7 +6,7 @@ const Magic = (): React.ReactNode => {
   const [songName, setSongName] = useState('');
 
   async function getSongs() {
-    const res = await fetch(`/api/magic/${songName}`);
+    const res = await fetch(`/api/magic/${encodeURIComponent(songName as string)}`);
     const resjson = await res.json();
     console.log(resjson.session);
     setSongs(resjson.tags.map((item) => item + ','));
