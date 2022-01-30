@@ -8,31 +8,36 @@ const Discover = (props): React.ReactNode => {
       image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2020/03/10/0/FNK_BEST-CHICKEN-AND-RICE-H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1583851621211.jpeg',
       maintext: 'Chicken & Rice',
       num: 988,
-      secondarytext: '55 min'
+      secondarytext: '55 min',
+      link: 'https://www.foodnetwork.com/recipes/food-network-kitchen/the-best-chicken-and-rice-8133711'
     },
     {
       image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/17/0/FNK_Best-Turkey-Meatloaf_H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1568735467631.jpeg',
       maintext: 'Turkey Meatloaf',
       num: 950,
-      secondarytext: '1hr 30min'
+      secondarytext: '1hr 30min',
+      link: 'https://www.foodnetwork.com/recipes/food-network-kitchen/best-turkey-meatloaf-recipe-7217376'
     },
     {
       image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/3/0/FNK_the-best-stuffed-peppers_H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1567523590914.jpeg',
       maintext: 'Stuffed Pepper',
       num: 921,
-      secondarytext: '1hr 15min'
+      secondarytext: '1hr 15min',
+      link: 'https://www.foodnetwork.com/recipes/food-network-kitchen/the-best-stuffed-peppers-7263055'
     },
     {
       image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/9/0/FNK_the-best-blueberry-muffins_H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1568040661674.jpeg',
       maintext: 'Blueberry Muffins',
       num: 900,
-      secondarytext: '1hr 15min'
+      secondarytext: '1hr 15min',
+      link: 'https://www.foodnetwork.com/recipes/food-network-kitchen/the-best-blueberry-muffins-7265025'
     },
     {
       image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/12/20/0/FNK_Baked-Salmon_H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1576855635102.jpeg',
       maintext: 'Baked Salmon',
       num: 891,
-      secondarytext: '25min'
+      secondarytext: '25min',
+      link: 'https://www.foodnetwork.com/recipes/food-network-kitchen/the-best-baked-salmon-1-8081733'
     },
     {
       image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/3/0/FNK_the-best-chewy-chocolate-chip-cookies_H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1568050722773.jpeg',
@@ -104,9 +109,14 @@ const Discover = (props): React.ReactNode => {
             image: cont.image,
             maintext: cont.maintext,
             secondarytext: cont.secondarytext,
+            link: cont.link || '',
             rank: i
           };
-          return <TopSongCard key={i} content={dic} />;
+          return (
+            <a style={{ color: 'white', textDecoration: 'none' }} key={i} href={dic.link} rel="noreferrer" target="_blank">
+              <TopSongCard key={i} content={dic} />
+            </a>
+          );
         })}
       </div>
     </>
