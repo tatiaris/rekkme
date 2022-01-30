@@ -93,7 +93,7 @@ export const login = (username, password, setLoginFailed, redirect = '/') => {
 };
 
 export const logout = (redirect = '/') => {
-  fetch(`/api/logout`, {
+  fetch(config.springUrl + `/api/logout`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -113,7 +113,7 @@ export const signupUser = (newUser, setSignupFailed, redirect = '/') => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ newUser })
+    body: JSON.stringify(newUser)
   })
     .then((response) => response.json())
     .then((data) => {
