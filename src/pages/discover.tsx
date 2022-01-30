@@ -34,21 +34,21 @@ const Discover = (props): React.ReactNode => {
           </a>
         </div>
         <div className="category-container">
-          <a href="/discover">
+          <a href="/discover/book">
             <div className="circTxt">
               <img width="150" src="/badges/BookBadge.png" alt="" />
             </div>
           </a>
         </div>
         <div className="category-container">
-          <a href="/discover">
+          <a href="/discover/product">
             <div className="circTxt">
               <img width="150" src="/badges/ProductBadge.png" alt="" />
             </div>
           </a>
         </div>
         <div className="category-container">
-          <a href="/discover">
+          <a href="/discover/bites">
             <div className="circTxt">
               <img width="150" src="/badges/RestaurantBadge.png" alt="" />
             </div>
@@ -62,7 +62,7 @@ const Discover = (props): React.ReactNode => {
           </a>
         </div>
         <div className="category-container">
-          <a href="/discover">
+          <a href="/discover/travel">
             <div className="circTxt">
               <img width="150" src="/badges/TravelBadge.png" alt="" />
             </div>

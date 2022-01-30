@@ -1,6 +1,6 @@
 export const config = {
-  name: 'Web App Template',
-  description: 'A starter next.js kit for all web apps',
+  name: 'Rekkme',
+  description: 'A peer to peer, social recommendation platform',
   small_logo: '/logos/Rekkme_IconDM.svg',
   springUrl: '/rekkme/api'
 };
