@@ -172,6 +172,17 @@ export const getReksToMe = async (setReksToMe) => {
   }
 };
 
+export const getRekActivity = async (setRekActivity) => {
+  try {
+    const res = await fetch(config.springUrl + `/reks/activity`, { credentials: 'include' });
+    const reksData = await res.json();
+    setRekActivity(reksData);
+  } catch (error) {
+    console.log('Error:', error);
+    setRekActivity([]);
+  }
+};
+
 export const getFriendList = async (setFriendList) => {
   try {
     const res = await fetch(config.springUrl + `/friends`, { credentials: 'include' });

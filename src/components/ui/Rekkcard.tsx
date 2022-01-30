@@ -13,26 +13,26 @@ export const RekkCard: React.FC<RekkCardProps> = (props) => {
     <div className="rekkcard">
       <div className="details-container">
         <div>
-          <img width="40px" src={content.fromImage} alt="" style={{ borderRadius: '50%' }} />
+          <img width="40px" src={content.fromUser.imageUrl} alt="" style={{ borderRadius: '50%' }} />
         </div>
         <div style={{ width: '100%', textAlign: 'left', padding: '0 10px' }}>
           <span style={{ fontSize: '20px' }}>
-            <b>{content.from}</b>
+            <b>{content.fromUser.firstName}</b>
             {` `}to{` `}
-            <b>{content.to}</b>
+            <b>{content.toUser.firstName}</b>
           </span>
           <br />
           <div style={{ height: '10px' }}></div>
           <span>
-            <b>{content.title}</b> by <b>{content.artist}</b>
+            <b>{content.title}</b> - <b>{content.artist}</b>
           </span>
           <br />
           <span style={{ fontStyle: 'italic', fontSize: '14px' }}>{content.description}</span>
         </div>
         <div style={{ textAlign: 'right' }}>
-          <span style={{ fontSize: '14px' }}>{content.date}</span>
-          <div style={{ height: '5px' }}></div>
-          <img width="80px" src={content.image} alt="" style={{ borderRadius: '5px' }} />
+          {/* <span style={{ fontSize: '14px' }}>{content.date}</span>
+          <div style={{ height: '5px' }}></div> */}
+          <img width="80px" src={content.imageUrl} alt="" style={{ borderRadius: '5px' }} />
         </div>
       </div>
       <div className="action-btns-container">
