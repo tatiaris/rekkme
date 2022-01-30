@@ -282,6 +282,7 @@ button:hover, a:hover {
 }
 
 .hamburger-menu {
+  z-index: 10;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -551,4 +552,24 @@ button:hover, a:hover {
 
 .my-reks-container {
   padding: 0 20px;
+}
+
+.notification-container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: transparent;
+  width: 100%;
+  color: var(--main-bg-color);
+}
+.notification-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--heading-text-color);
+}
+.notification-title {
+  font-weight: bold;
 }

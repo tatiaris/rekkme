@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/common/Navbar';
 import { getFriendList, getRekkData, sendRecommendation } from '../components/Helper';
+import Notification from '../components/ui/Notification';
 
 interface processedRekkDataFormat {
   link: string;
@@ -61,6 +62,7 @@ const Rekk = (props): React.ReactNode => {
   return (
     <>
       <Navbar userSession={props.userSession} pageTitle="New Rekk" />
+      <Notification setShowNotification={setRecommendationSent} content={{ title: 'Success', text: `${recommendeeList[0]} has been recommended!`, show: recommendationSent }} />
       <div className="rekk-form-container">
         <div className="rekkcard" style={{ textAlign: 'center' }}>
           <img width="50" src="/badges/MusicBadge.png" alt="" style={{ borderRadius: '50%', border: '1px solid gold' }} />
