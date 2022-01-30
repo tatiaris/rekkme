@@ -15,7 +15,8 @@ const About = (): React.ReactNode => {
           style={{
             fontStyle: 'normal',
             fontSize: '20px'
-          }}>
+          }}
+        >
           {`Have you ever opened up Netflix and wondered what to watch, or visited a new city and had to scroll through hundreds of text messages to find a restaurant that was highly recommended by a friend?`}
         </div>
         <div style={{ height: '30px' }}></div>
@@ -27,7 +28,8 @@ const About = (): React.ReactNode => {
           style={{
             fontStyle: 'normal',
             fontSize: '20px'
-          }}>{`Rekkme is a convenient way to share personalized recommendations with friends and family, and prove who has the best taste in pretty much anything!`}</div>
+          }}
+        >{`Rekkme is a convenient way to share personalized recommendations with friends and family, and prove who has the best taste in pretty much anything!`}</div>
       </div>
     </>
   );
