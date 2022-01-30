@@ -248,3 +248,14 @@ export const sendRekResult = (rekId, rekRating, setRatingSubmitted) => {
       setRatingSubmitted(false);
     });
 };
+
+export const getAllNotifications = async (setAllNotifications) => {
+  try {
+    const res = await fetch(config.springUrl + `/reks/results/new`, { credentials: 'include' });
+    const reksData = await res.json();
+    setAllNotifications(reksData);
+  } catch (error) {
+    console.log('Error:', error);
+    setAllNotifications([]);
+  }
+};

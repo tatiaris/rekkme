@@ -617,3 +617,25 @@ button:hover, a:hover {
   background-size: contain;
   background-position-x: center;
 }
+
+.all-notification-container {
+  background-color: var(--secondary-bg-color);
+  width: 100%;
+  color: var(--heading-text-color);
+  border-radius: 5px;
+}
+.all-notification-container.success {
+  background-color: var(--heading-text-color);
+  width: 100%;
+  color: var(--main-bg-color);
+}
+.all-notification-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+.all-notification-title {
+  font-weight: bold;
+}
