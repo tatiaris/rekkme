@@ -131,29 +131,29 @@ export const signupUser = (newUser, password, setSignupFailed, redirect = '/') =
 };
 
 export const getRekkData = (rawData, setProcessedRekkData) => {
-  // fetch(`/api/magic`, {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify(rawData)
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     setProcessedRekkData(data);
-  //   })
-  //   .catch((error) => {
-  //     console.error('Error:', error);
-  //   });
-  setProcessedRekkData({
-    url: 'https://open.spotify.com/track/7CoMBpPTwQi2wPT0U0Nr9b',
-    category: 'Song',
-    title: `State Lines`,
-    artist: 'Novo Amor',
-    tags: [],
-    description: `This song reminds me of our Wyoming trip!`,
-    image: 'https://i1.sndcdn.com/artworks-000378864174-wqiyao-t500x500.jpg'
-  });
+  fetch(`/api/magic`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(rawData)
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      setProcessedRekkData(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  // setProcessedRekkData({
+  //   url: 'https://open.spotify.com/track/7CoMBpPTwQi2wPT0U0Nr9b',
+  //   category: 'Song',
+  //   title: `State Lines`,
+  //   artist: 'Novo Amor',
+  //   tags: [],
+  //   description: `This song reminds me of our Wyoming trip!`,
+  //   image: 'https://i1.sndcdn.com/artworks-000378864174-wqiyao-t500x500.jpg'
+  // });
 };
 
 export const circularText = (txt, radius, classIndex) => {
@@ -168,4 +168,15 @@ export const circularText = (txt, radius, classIndex) => {
     classIndex.innerHTML += ea;
     origin += deg;
   });
+};
+
+export const getReksToMe = async (setReksToMe) => {
+  try {
+    const res = await fetch(config.springUrl + `/reks`, { credentials: 'include' });
+    const reksData = await res.json();
+    setReksToMe(reksData);
+  } catch (error) {
+    console.log('Error:', error);
+    setReksToMe(['nope']);
+  }
 };

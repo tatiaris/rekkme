@@ -15,7 +15,7 @@ enum Dir {
 
 const handler = nextConnect();
 
-handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
+handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { title, text, url } = req.body;
     // const { magictext } = req.query;
@@ -52,7 +52,7 @@ handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
       });
     } else if (realurl[0].includes('youtube') || realurl[0].includes('youtu.be')) {
       youtube.metadata(realurl[0]).then((json) => {
-        res.status(200).json(json);
+        res.status(200).json({ ...json, image: json.thumbnail_url });
       });
     } else if (realurl) {
       (async () => {

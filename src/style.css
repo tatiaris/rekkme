@@ -351,6 +351,7 @@ button:hover, a:hover {
 
 .user-page-container {
   padding: 0 20px;
+  max-height: calc(100vh - 110px);
 }
 .personal-section {
   padding-top: 50px;
@@ -484,5 +485,70 @@ button:hover, a:hover {
 }
 
 .leaderboard-container {
+  padding: 0 20px;
+}
+
+.rekk-tabs-container {
+  height: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tabs-nav-container {
+  display: flex;
+  justify-content: center;
+  background-color: #e4cfad;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.tabs-nav-container .tab-nav-item {
+  width: 100%;
+}
+.tab-nav-item button {
+  width: 100%;
+  background-color: transparent;
+  color: var(--main-bg-color);
+  font-weight: bold;
+}
+.tab-nav-item.selected button {
+  background-color: var(--heading-text-color);
+  border-radius: 25px;
+}
+.profile-reks-container {
+  display: none;
+}
+.profile-reks-container.selected {
+  display: block;
+  padding: 30px 0px;
+}
+.rec-for-you {
+  height: 100px;
+}
+.discover-container {
+  padding: 0 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.circTxt {
+  position: relative;
+}
+
+.discover-container .category-container a {
+  color: var(--regular-text-color);
+}
+
+.profile-categories-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.my-reks-container {
   padding: 0 20px;
 }
