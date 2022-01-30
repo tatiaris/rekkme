@@ -372,3 +372,58 @@ button:hover, a:hover {
 .points-title {
   font-size: 50px;
 }
+
+.rekk-form-container {
+  padding: 20px;
+}
+.rekk-form-inputs {
+  width: 100%;
+}
+.rekk-form-inputs textarea {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  border: 0;
+  margin: 0;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+}
+
+.slider-container {
+  width: 100%;
+}
+.slider-container input {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: var(--secondary-bg-color);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider-container input::-webkit-slider-thumb {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  background: url('https://rekkme.vercel.app/logos/Rekkme_IconDM.svg') no-repeat;
+  cursor: pointer;
+  background-color: white;
+}
+
+/* .slider-container input::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+} */
+
+.recommend-btn {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  background-color: var(--heading-text-color);
+  color: var(--main-bg-color);
+}
