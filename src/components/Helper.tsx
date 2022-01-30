@@ -172,6 +172,17 @@ export const getReksToMe = async (setReksToMe) => {
   }
 };
 
+export const getRekActivity = async (setRekActivity) => {
+  try {
+    const res = await fetch(config.springUrl + `/reks/activity`, { credentials: 'include' });
+    const reksData = await res.json();
+    setRekActivity(reksData);
+  } catch (error) {
+    console.log('Error:', error);
+    setRekActivity([]);
+  }
+};
+
 export const getFriendList = async (setFriendList) => {
   try {
     const res = await fetch(config.springUrl + `/friends`, { credentials: 'include' });
@@ -195,7 +206,6 @@ export const getQueue = async (setQueue) => {
 };
 
 export const sendRecommendation = (rekkObject, setRecommendationSent) => {
-  console.log('sending recommendation', rekkObject);
   fetch(config.springUrl + `/reks/save`, {
     method: 'POST',
     headers: {
@@ -214,5 +224,27 @@ export const sendRecommendation = (rekkObject, setRecommendationSent) => {
     .catch((error) => {
       console.error('Error:', error);
       setRecommendationSent(false);
+    });
+};
+
+export const sendRekResult = (rekId, rekRating, setRatingSubmitted) => {
+  fetch(config.springUrl + `/reks/${rekId}/result`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ result: rekRating })
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (typeof data.rekResultId == undefined) {
+        setRatingSubmitted(false);
+      } else {
+        setRatingSubmitted(true);
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      setRatingSubmitted(false);
     });
 };

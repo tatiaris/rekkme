@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/common/Navbar';
 
 const Leaderboard = (props): React.ReactNode => {
@@ -30,7 +30,7 @@ const Leaderboard = (props): React.ReactNode => {
     {
       image: 'https://i5.walmartimages.com/asr/1c530c63-a3e9-4b76-8551-8d6928cfbcb4_1.a78a4ba6644aacbd4537ebd548edbe40.jpeg',
       maintext: 'the social network',
-      num: 345,
+      numrekks: 345,
       secondarytext: 'Drama/History'
     },
     {
@@ -168,10 +168,90 @@ const Leaderboard = (props): React.ReactNode => {
       points: '5513'
     }
   ];
+  const topFriends: any = [
+    {
+      name: 'Jack',
+      image: 'https://raw.githubusercontent.com/tatiaris/rekkme/e3bd5b661546a556cd5b842a6d53c39deccf921c/public/avatars/guy-1.png',
+      category: 'Products',
+      points: '9224'
+    },
+    {
+      name: 'Will',
+      image: 'https://raw.githubusercontent.com/tatiaris/rekkme/e3bd5b661546a556cd5b842a6d53c39deccf921c/public/avatars/guy-2.png',
+      category: 'Restaurants',
+      points: '8472'
+    }
+  ];
+  const [selectedTab, setSelectedTab] = useState('people');
   return (
     <>
       <Navbar userSession={props.userSession} pageTitle="Leaderboard" />
-      <div className="leaderboard-container"></div>
+      <div className="leaderboard-container">
+        <div className="rekk-tabs-container">
+          <div className="tabs-nav-container">
+            <div className={`tab-nav-item ${selectedTab == 'people' ? 'selected' : ''}`}>
+              <button onClick={() => setSelectedTab('people')}>People</button>
+            </div>
+            <div className={`tab-nav-item ${selectedTab == 'rekks' ? 'selected' : ''}`}>
+              <button onClick={() => setSelectedTab('rekks')}>Rekks</button>
+            </div>
+            <div className={`tab-nav-item ${selectedTab == 'friends' ? 'selected' : ''}`}>
+              <button onClick={() => setSelectedTab('friends')}>Friends</button>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div className="leaderboard-content">
+          {selectedTab == 'people' &&
+            topUsers.map((user, i) => (
+              <div className="leaderboard-person" key={i}>
+                <div className="leaderboard-person-image">
+                  <img width="100" src={user.image} alt="" />
+                </div>
+                <div className="user-data">
+                  <div className="user-name">{user.name}</div>
+                  <div className="user-category">
+                    <i>{user.category}</i>
+                  </div>
+                </div>
+                <div className="rekpoints-container blob-points">
+                  <span className="">{user.points}</span>
+                </div>
+              </div>
+            ))}
+          {selectedTab == 'rekks' &&
+            topRekks.map((rekk, i) => (
+              <div className="leaderboard-person" key={i}>
+                <div className="leaderboard-person-image">
+                  <img width="100" src={rekk.image} alt="" />
+                </div>
+                <div className="user-data" style={{ padding: '0px' }}>
+                  <div className="user-name">{rekk.maintext}</div>
+                  <div className="user-category">
+                    <i>{rekk.secondarytext}</i>
+                  </div>
+                </div>
+                <div className="rekpoints-container blob-points">{rekk.numrekks}</div>
+              </div>
+            ))}
+          {selectedTab == 'friends' &&
+            topFriends.map((user, i) => (
+              <div className="leaderboard-person" key={i}>
+                <div className="leaderboard-person-image">
+                  <img width="100" src={user.image} alt="" />
+                </div>
+                <div className="user-data">
+                  <div className="user-name">{user.name}</div>
+                  <div className="user-category">
+                    <i>{user.category}</i>
+                  </div>
+                </div>
+                <div className="rekpoints-container blob-points">{user.points}</div>
+              </div>
+            ))}
+        </div>
+      </div>
     </>
   );
 };

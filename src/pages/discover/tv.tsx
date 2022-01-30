@@ -8,31 +8,36 @@ const Discover = (props): React.ReactNode => {
       image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSF4okCRT0rbKLVSFMb9Mb_2yvstZcHLsavrRI7xS5BkkSnNdPy',
       maintext: 'Parasite',
       num: 988,
-      secondarytext: 'Thriller/Drama'
+      secondarytext: 'Thriller/Drama',
+      link: 'https://www.hulu.com/movie/parasite-2fd691a0-f66b-467f-8635-00d7f151f3d4?entity_id=2fd691a0-f66b-467f-8635-00d7f151f3d4'
     },
     {
       image: 'https://i5.walmartimages.com/asr/1c530c63-a3e9-4b76-8551-8d6928cfbcb4_1.a78a4ba6644aacbd4537ebd548edbe40.jpeg',
       maintext: 'the social network',
       num: 950,
-      secondarytext: 'Drama/History'
+      secondarytext: 'Drama/History',
+      link: 'https://www.netflix.com/title/70132721?source=35'
     },
     {
       image: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR97mJ8OxvSFGwOCBENKiI6o6fsXbWDf_KqtCzHjHlCfROdpqo0',
       maintext: "Schindler's List",
       num: 921,
-      secondarytext: 'War/Drama'
+      secondarytext: 'War/Drama',
+      link: 'https://www.youtube.com/watch?v=TEY0dQAF4k4'
     },
     {
       image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRGNens_IGL9MqtOmRCvPhC2fbq4Mkra_OQNjT_L88N2TyviO0g',
       maintext: 'Avatar',
       num: 900,
-      secondarytext: 'Sci-fi/Action'
+      secondarytext: 'Sci-fi/Action',
+      link: 'https://www.youtube.com/watch?v=o_26SGY83-I'
     },
     {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKEVEEwyYlEKJbnneJYQ2moCBaammhvILoI7_ayPgU2TN9pLPV',
       maintext: 'Shawshank Redemption',
       num: 891,
-      secondarytext: 'Drama/Crime'
+      secondarytext: 'Drama/Crime',
+      link: 'https://www.youtube.com/watch?v=19THOH_dvxg'
     },
     {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdPugWzSnX3TWCYO-KlF4f5VF2JeMp6VGdAi2lQTLzsqHq00dW',
@@ -104,9 +109,14 @@ const Discover = (props): React.ReactNode => {
             image: cont.image,
             maintext: cont.maintext,
             secondarytext: cont.secondarytext,
+            link: cont.link || '',
             rank: i
           };
-          return <TopSongCard key={i} content={dic} />;
+          return (
+            <a style={{ color: 'white', textDecoration: 'none' }} key={i} href={dic.link} rel="noreferrer" target="_blank">
+              <TopSongCard key={i} content={dic} />
+            </a>
+          );
         })}
       </div>
     </>
