@@ -13,6 +13,7 @@
 }
 body {
   background-color: var(--main-bg-color) !important;
+  color: var(--regular-text-color) !important;
   margin: 0;
   font-size: var(--default-font-size);
   font-family: var(--default-font-family);
@@ -400,17 +401,17 @@ button:hover, a:hover {
   height: 25px;
   background: var(--secondary-bg-color);
   outline: none;
-  opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  border-radius: 5px;
 }
 .slider-container input::-webkit-slider-thumb {
+  margin-top: 13px;
   appearance: none;
-  width: 30px;
-  height: 30px;
-  background: url('https://rekkme.vercel.app/logos/Rekkme_IconDM.svg') no-repeat;
+  width: 60px;
+  height: 60px;
+  background: url('/misc/BoxingGlove.svg') no-repeat;
   cursor: pointer;
-  background-color: white;
 }
 
 /* .slider-container input::-moz-range-thumb {
@@ -426,4 +427,33 @@ button:hover, a:hover {
   font-size: 24px;
   background-color: var(--heading-text-color);
   color: var(--main-bg-color);
+}
+
+.friends-container {
+  display: flex;
+  gap: 10px;
+}
+
+.friend-container {
+  font-size: 12px;
+  text-align: center;
+}
+.friend-container img {
+  border-radius: 50%;
+  background-color: var(--secondary-bg-color);
+}
+.clear-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+}
+.overlay-img {
+  display: none;
+}
+.overlay-img.show {
+  display: block;
+  position: absolute;
+  top: 0;
+  background-color: #000000b0;
 }
