@@ -107,13 +107,13 @@ export const logout = (redirect = '/') => {
     });
 };
 
-export const signupUser = (newUser, password, setSignupFailed, redirect = '/') => {
-  fetch(`/api/signup`, {
+export const signupUser = (newUser, setSignupFailed, redirect = '/') => {
+  fetch(config.springUrl + `/login/create`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ newUser, password })
+    body: JSON.stringify({ newUser })
   })
     .then((response) => response.json())
     .then((data) => {

@@ -52,6 +52,11 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           <a href="/discover">Discover</a>
           <a href="/notifications">Notifications</a>
           <a href="/logout">Log Out</a>
+          <br />
+          <br />
+          <a href="/">
+            <img width="250" src="/logos/Rekkme_LinearLogoDM.svg" alt="" />
+          </a>
         </div>
       );
     } else {
@@ -67,6 +72,11 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           <a href="/discover">Discover</a>
           <a href="/login">Log In</a>
           <a href="/signup">Sign Up</a>
+          <br />
+          <br />
+          <a href="/">
+            <img width="250" src="/logos/Rekkme_LinearLogoDM.svg" alt="" />
+          </a>
         </div>
       );
     }
