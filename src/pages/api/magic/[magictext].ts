@@ -5,6 +5,7 @@ import cheerio from 'cheerio';
 import language from '@google-cloud/language';
 import { getPreview } from 'spotify-url-info';
 import youtube from 'youtube-metadata-from-url';
+import { convert } from 'html-to-text';
 
 enum Dir {
   P = 'PLAIN_TEXT',
@@ -40,10 +41,10 @@ handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
     //   'Computer science is the study of computation, automation, and information.[1] Computer science spans theoretical disciplines, such as algorithms, theory of computation, and information theory, to practical disciplines including the design and implementation of hardware and software.[2][3] Computer science is generally considered an area of academic research and distinct from computer programming. Algorithms and data structures have been called the heart of computer science.[4] The theory of computation concerns abstract models of computation and general classes of problems that can be solved using them. Cryptography and computer security study the means for secure communication and prevent security vulnerabilities. Computer graphics and computational geometry study the generation of images. Programming language theory considers approaches to the description of computational processes, and database theory concerns the management of repositories of data. Human–computer interaction investigates the interfaces through which humans and computers interact and software engineering focuses on the design and principles behind developing software. Areas such as operating systems, networks and embedded systems investigate the principles and design behind complex systems. Computer architecture describes the construction of computer components and computer-operated equipment. Artificial intelligence and machine learning aim to synthesize goal-orientated processes such as problem-solving, decision-making, environmental adaptation, planning and learning found in humans and animals. Within artificial intelligence, computer vision aims to understand and process image and video data, while natural language processing aims to understand and process textual and linguistic data. The fundamental concern of computer science is determining what can and cannot be automated.[5] The Turing Award is generally recognized as the highest distinction in computer science. '; //convert(response.data);
 
     // Instantiates a client
-    // const client = new language.LanguageServiceClient({
-    //   projectId: 'metal-voyager-33980',
-    //   keyFilename: 'metal-voyager-339800-f5404aeb6488.json'
-    // });
+    const client = new language.LanguageServiceClient({
+      projectId: 'metal-voyager-33980',
+      keyFilename: 'metal-voyager-339800-f5404aeb6488.json'
+    });
 
     if (realurl[0].includes('spotify')) {
       getPreview(realurl[0]).then((data) => {
@@ -67,20 +68,20 @@ handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
             }
           })
           .then(async (response) => {
-            // const document = {
-            //   content: response.data as string,
-            //   type: Dir.P
-            // };
-            // console.log(document);
-            // const entities = await client.analyzeEntities({ document: document });
-            // console.log(entities);
-            // console.log(entities[0].entities);
+            const htmltext = convert(response.data);
+            const document = {
+              content: htmltext as string,
+              type: Dir.P
+            };
+            console.log(document);
+            const classes = await client.classifyText({ document: document });
+            const entities = await client.analyzeEntities({ document: document });
             const $ = cheerio.load(response.data);
-            console.log($('body').find('img').attr('src'));
             res.status(200).json({
-              src: $('body').find('img').attr('src')
+              src: $('body').find('img').attr('src'),
+              entities: entities[0].entities.map((ent) => ent.name).slice(0, 4),
+              classes: classes[0].categories[0]
             });
-            // res.status(200).json({ tags: entities[0].entities.map((ent) => ent.name).slice(0, 4) });
           });
       })();
     }
