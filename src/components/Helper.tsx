@@ -52,39 +52,6 @@ export const addToDatabase = (objectType: string, newObject: any, toastFunction)
     });
 };
 
-export const updateDatabase = (objectType: string, updatedObject: any, toastFunction) => {
-  fetch(`/nexus/api/${objectType}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ updatedObject: updatedObject })
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      sendNotification(toastFunction, data.success, data.message);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      sendNotification(toastFunction, false, 'Could not add to database');
-    });
-};
-
-export const deleteFromDatabase = (objectType: string, uid: string, toastFunction) => {
-  console.log('deleting', uid, 'from the db');
-  fetch(`/nexus/api/${objectType}?uid=` + uid, {
-    method: 'DELETE'
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      sendNotification(toastFunction, data.success, data.message);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      sendNotification(toastFunction, false, 'Could not add to database');
-    });
-};
-
 export const fetchCompleteCollection = async (collection: string, setVariable) => {
   const collectionResponse = await fetch(`/nexus/api/${collection}?amount=all`);
   const collectionData = await collectionResponse.json();
@@ -93,9 +60,13 @@ export const fetchCompleteCollection = async (collection: string, setVariable) =
 };
 
 export const getUserSession = async () => {
-  const res = await fetch(`/session`, { credentials: 'include' });
-  const sessionData = await res.json();
-  return sessionData.session;
+  try {
+    const res = await fetch(config.springUrl + `/session`, { credentials: 'include' });
+    const sessionData = await res.json();
+    return sessionData.session;
+  } catch (error) {
+    return null;
+  }
 };
 
 export const login = (username, password, setLoginFailed, redirect = '/') => {
