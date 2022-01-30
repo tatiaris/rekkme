@@ -97,7 +97,7 @@ const Discover = (props): React.ReactNode => {
   ];
   return (
     <>
-      <Navbar userSession={props.userSession} pageTitle="Music" />
+      <Navbar userSession={props.userSession} pageTitle="Recipes" />
       <div style={{ padding: '0px 20px 5px 0px' }}>
         {cardContent.map((cont, i) => {
           const dic = {
