@@ -457,3 +457,32 @@ button:hover, a:hover {
   top: 0;
   background-color: #000000b0;
 }
+
+.discover-container {
+  padding: 0 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.circTxt {
+  position: relative;
+}
+
+.discover-container .category-container a {
+  color: var(--regular-text-color);
+}
+
+.trending-container {
+  padding: 0 20px;
+}
+.trending-container .rekk-container {
+  display: flex;
+  padding: 10px 0px;
+  justify-content: space-between;
+}
+
+.leaderboard-container {
+  padding: 0 20px;
+}

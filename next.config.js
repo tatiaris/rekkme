@@ -5,7 +5,13 @@ module.exports = withPWA({
     dest: 'public',
     register: true,
     skipWaiting: true
-  }
+  },
+  rewrites: [
+    {
+      source: '/rekkme/api:path',
+      destination: `https://1207-165-91-13-212.ngrok.io/rekkme/api:path*`
+    }
+  ]
 });
 
 // module.exports = {

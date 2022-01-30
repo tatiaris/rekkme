@@ -17,6 +17,7 @@ const Feed = (props): React.ReactNode => {
     date: 'January 29',
     fromImage: 'https://avatars.githubusercontent.com/u/33273930?v=4'
   };
+  console.log(props.userSession);
   return (
     <>
       <Navbar userSession={props.userSession} pageTitle="Community" />

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { config } from './config';
 
 export const sum = (a: number, b: number): number => {
   return a + b;
@@ -98,7 +99,7 @@ export const getUserSession = async () => {
 };
 
 export const login = (username, password, setLoginFailed, redirect = '/') => {
-  fetch(`/api/login`, {
+  fetch(config.springUrl + `/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -181,5 +182,19 @@ export const getRekkData = (rawData, setProcessedRekkData) => {
     tags: [],
     description: `This song reminds me of our Wyoming trip!`,
     image: 'https://i1.sndcdn.com/artworks-000378864174-wqiyao-t500x500.jpg'
+  });
+};
+
+export const circularText = (txt, radius, classIndex) => {
+  txt = txt.split('');
+  classIndex = document.getElementsByClassName('circTxt')[classIndex];
+
+  const deg = 14;
+  let origin = 300;
+
+  txt.forEach((ea) => {
+    ea = `<p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%;top:-40px;left:75px;'>${ea}</p>`;
+    classIndex.innerHTML += ea;
+    origin += deg;
   });
 };
