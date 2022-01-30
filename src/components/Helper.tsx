@@ -145,15 +145,6 @@ export const getRekkData = (rawData, setProcessedRekkData) => {
     .catch((error) => {
       console.error('Error:', error);
     });
-  // setProcessedRekkData({
-  //   url: 'https://open.spotify.com/track/7CoMBpPTwQi2wPT0U0Nr9b',
-  //   category: 'Song',
-  //   title: `State Lines`,
-  //   artist: 'Novo Amor',
-  //   tags: [],
-  //   description: `This song reminds me of our Wyoming trip!`,
-  //   image: 'https://i1.sndcdn.com/artworks-000378864174-wqiyao-t500x500.jpg'
-  // });
 };
 
 export const circularText = (txt, radius, classIndex) => {
@@ -203,7 +194,7 @@ export const sendRecommendation = (rekkObject, setRecommendationSent) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data.success) {
+      if (data.length > 0) {
         setRecommendationSent(true);
       } else {
         setRecommendationSent(false);
