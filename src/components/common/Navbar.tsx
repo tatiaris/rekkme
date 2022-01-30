@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           <br />
           <br />
           <a href="/">
-            <img width="250" src="/logos/Rekkme_LinearLogoDM.svg" alt="" />
+            <img width="250" src="/logos/logoBig.svg" alt="" />
           </a>
         </div>
       );
@@ -75,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           <br />
           <br />
           <a href="/">
-            <img width="250" src="/logos/Rekkme_LinearLogoDM.svg" alt="" />
+            <img width="250" src="/logos/logoBig.svg" alt="" />
           </a>
         </div>
       );
