@@ -18,8 +18,6 @@ const handler = nextConnect();
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { title, text, url } = req.body;
-    console.log('plain', req);
-    console.log('body', req.body);
     console.log('query', req.query);
     // const { magictext } = req.query;
     // eslint-disable-next-line no-useless-escape
@@ -29,13 +27,13 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
     console.log('passed regex');
 
     let realurl = '';
-    if (url.match(regex)) {
+    if (url && url.match(regex)) {
       console.log('url found in url');
       realurl = url.match(regex);
-    } else if (title.match(regex)) {
+    } else if (title && title.match(regex)) {
       console.log('url found in titile');
       realurl = title.match(regex);
-    } else if (text.match(regex)) {
+    } else if (text && text.match(regex)) {
       console.log('url found in text');
       realurl = text.match(regex);
     } else {
