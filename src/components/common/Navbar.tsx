@@ -50,6 +50,7 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           <a href="/">Community</a>
           <a href="/leaderboard">Leaderboards</a>
           <a href="/discover">Discover</a>
+          <a href="/notifications">Notifications</a>
           <a href="/logout">Log Out</a>
         </div>
       );
