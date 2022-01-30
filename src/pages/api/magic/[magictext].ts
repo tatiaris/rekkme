@@ -55,7 +55,7 @@ handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
     } else if (realurl) {
       (async () => {
         axios
-          .get(realurl as string, {
+          .get(`http://${realurl[0]}` as string, {
             headers: {
               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
               'Accept-Encoding': 'gzip, deflate',
@@ -66,23 +66,20 @@ handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
             }
           })
           .then(async (response) => {
-            const document = {
-              content: response.data as string,
-              type: Dir.P
-            };
-            console.log(document);
-            const entities = {};
+            // const document = {
+            //   content: response.data as string,
+            //   type: Dir.P
+            // };
+            // console.log(document);
             // const entities = await client.analyzeEntities({ document: document });
             // console.log(entities);
             // console.log(entities[0].entities);
-
             const $ = cheerio.load(response.data);
-            console.log($('#imgTagWrapperId').find('img').attr('src'));
+            console.log($('body').find('img').attr('src'));
             res.status(200).json({
-              src: $('#imgTagWrapperId').find('img').attr('src'),
-              alt: $('#imgTagWrapperId').find('img').attr('alt')
+              src: $('body').find('img').attr('src')
             });
-            res.status(200).json({ tags: entities[0].entities.map((ent) => ent.name).slice(0, 4) });
+            // res.status(200).json({ tags: entities[0].entities.map((ent) => ent.name).slice(0, 4) });
           });
       })();
     }
