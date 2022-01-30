@@ -534,6 +534,11 @@ button:hover, a:hover {
   display: block;
   padding: 30px 0px;
 }
+.profile-reks-container.from-you-container.selected {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .rec-for-you {
   height: 100px;
 }

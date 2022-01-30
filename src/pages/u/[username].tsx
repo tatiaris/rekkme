@@ -103,7 +103,7 @@ const UserPage = (props): React.ReactNode => {
                 </div>
               </div>
             </div>
-            <div className={`profile-reks-container ${selectedTab == 'from-you' ? 'selected' : ''}`}>
+            <div className={`profile-reks-container from-you-container ${selectedTab == 'from-you' ? 'selected' : ''}`}>
               <>{reksFromMeList}</>
             </div>
           </div>
