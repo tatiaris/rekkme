@@ -18,6 +18,7 @@ handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { title, text, url } = req.body;
     // const { magictext } = req.query;
+    // eslint-disable-next-line no-useless-escape
     const expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
     const regex = new RegExp(expression);
 
