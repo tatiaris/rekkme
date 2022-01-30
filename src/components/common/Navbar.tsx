@@ -49,7 +49,7 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           <a href={`/queue`}>Queue</a>
           <a href="/">Community</a>
           <a href="/leaderboard">Leaderboards</a>
-          <a href="/charts">Discover</a>
+          <a href="/discover">Discover</a>
           <a href="/logout">Log Out</a>
         </div>
       );
@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           </div>
           <a href="/">Community</a>
           <a href="/leaderboard">Leaderboard</a>
-          <a href="/charts">Discover</a>
+          <a href="/discover">Discover</a>
           <a href="/login">Log In</a>
           <a href="/signup">Sign Up</a>
         </div>

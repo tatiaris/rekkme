@@ -93,7 +93,7 @@ export const fetchCompleteCollection = async (collection: string, setVariable) =
 };
 
 export const getUserSession = async () => {
-  const res = await fetch(`/api/session`, { credentials: 'include' });
+  const res = await fetch(`/session`, { credentials: 'include' });
   const sessionData = await res.json();
   return sessionData.session;
 };
