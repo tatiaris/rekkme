@@ -177,6 +177,40 @@ export const getReksToMe = async (setReksToMe) => {
     setReksToMe(reksData);
   } catch (error) {
     console.log('Error:', error);
-    setReksToMe(['nope']);
+    setReksToMe([]);
   }
+};
+
+export const getFriendList = async (setFriendList) => {
+  try {
+    const res = await fetch(config.springUrl + `/friends`, { credentials: 'include' });
+    const reksData = await res.json();
+    setFriendList(reksData);
+  } catch (error) {
+    console.log('Error:', error);
+    setFriendList([]);
+  }
+};
+
+export const sendRecommendation = (rekkObject, setRecommendationSent) => {
+  console.log('sending recommendation', rekkObject);
+  fetch(config.springUrl + `/reks/save`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(rekkObject)
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        setRecommendationSent(true);
+      } else {
+        setRecommendationSent(false);
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      setRecommendationSent(false);
+    });
 };

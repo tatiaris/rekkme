@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/common/Navbar';
-import { getRekkData } from '../components/Helper';
+import { getFriendList, getRekkData, sendRecommendation } from '../components/Helper';
 
 interface processedRekkDataFormat {
-  url: string;
+  link: string;
   category: string;
   title: string;
   artist: string;
   tags: Array<string>;
   description: string;
-  image: string;
+  image?: string;
+  location?: string;
 }
 const Rekk = (props): React.ReactNode => {
   const [processedRekkData, setProcessedRekkData] = useState<processedRekkDataFormat>();
   const [recommendeeList, setRecommendeeList] = useState<Array<string>>([]);
+  const [friendList, setFriendList] = useState<Array<any>>([]);
+  const [wagerValue, setWagerValue] = useState<number>(50);
+  const [messageValue, setMessageValue] = useState<string>('');
+  const [recommendationSent, setRecommendationSent] = useState<boolean>(false);
 
   useEffect(() => {
     if (window) {
@@ -23,15 +28,34 @@ const Rekk = (props): React.ReactNode => {
       const url = queryParams.get('url');
       const rawRekkData = { title, text, url };
       getRekkData(rawRekkData, setProcessedRekkData);
+      getFriendList(setFriendList);
     }
   }, []);
 
-  const addRecommendee = (id): void => {
-    setRecommendeeList([...recommendeeList, id]);
+  const toggleRecommendee = (username) => {
+    if (recommendeeList.includes(username)) {
+      setRecommendeeList(recommendeeList.filter((item) => item !== username));
+    } else {
+      setRecommendeeList([...recommendeeList, username]);
+    }
   };
 
-  const removeRecommendee = (id): void => {
-    setRecommendeeList(recommendeeList.filter((recommendee) => recommendee !== id));
+  const triggerSendRekk = () => {
+    if (recommendeeList.length > 0) {
+      const rekkData = {
+        category: processedRekkData.category,
+        usernames: friendList.map((friend) => friend.username),
+        url: processedRekkData.link,
+        wager: wagerValue,
+        title: processedRekkData.title,
+        imageUrl: processedRekkData.image,
+        description: messageValue,
+        tags: [],
+        artist: processedRekkData.artist || '',
+        location: processedRekkData.location || ''
+      };
+      sendRecommendation(rekkData, setRecommendationSent);
+    }
   };
 
   return (
@@ -46,8 +70,6 @@ const Rekk = (props): React.ReactNode => {
             <b>{processedRekkData?.title}</b> by <b>{processedRekkData?.artist}</b>
           </span>
           <br />
-          {processedRekkData?.title}
-          <br />
           <br />
           <div>
             <img width="250px" src={processedRekkData?.image} alt="" style={{ borderRadius: '5px' }} />
@@ -55,35 +77,34 @@ const Rekk = (props): React.ReactNode => {
         </div>
         <br />
         <div className="rekk-form-inputs">
-          <textarea placeholder="Type a message (optional) ..." />
+          <textarea onChange={(e) => setMessageValue(e.target.value)} placeholder="Type a message (optional) ..." />
           <br />
           <br />
           How much will they like it?
           <div style={{ height: '10px' }}></div>
           <div className="slider-container">
-            <input type="range" min="20" max="100" defaultValue="50" className="slider" id="myRange" />
+            <input type="range" min="50" max="100" defaultValue="50" className="slider" id="myRange" onChange={(e) => setWagerValue(parseInt(e.target.value))} />
+            <div className="slider-value" style={{ textAlign: 'right' }}>
+              {wagerValue}
+            </div>
           </div>
         </div>
-        <br />
         Who to recommend?
         <div style={{ height: '10px' }}></div>
         <div className="friends-container">
-          <div className="friend-container">
-            <button className="clear-btn" onClick={() => addRecommendee('1')} style={{ position: 'relative' }}>
-              <img width="50" src="/misc/gavatar.png" alt="" style={{ borderRadius: '50%' }} />
-              <img width="50" src="/icons/check.svg" alt="" className={`overlay-img`} />
-            </button>
-            <br />
-            <span>Dan</span>
-          </div>
-          <div className="friend-container">
-            <img width="50px" src="/misc/bavatar.png" alt="" style={{ borderRadius: '50%' }} />
-            <br />
-            <span>Greg</span>
-          </div>
+          {friendList.map((friend, i) => (
+            <div className="friend-container" key={i}>
+              <button className="clear-btn" onClick={() => toggleRecommendee(friend.username)} style={{ position: 'relative' }}>
+                <img width="50" src={friend.imageUrl} alt="" style={{ borderRadius: '50%' }} />
+                <img width="50" src="/icons/check.svg" alt="" className={`overlay-img ${recommendeeList.includes(friend.username) ? 'show' : ''}`} />
+              </button>
+              <br />
+              <span>{friend.firstName}</span>
+            </div>
+          ))}
         </div>
         <br />
-        <button className="recommend-btn">
+        <button className="recommend-btn" onClick={triggerSendRekk}>
           Recommend
           <img width="20" src="/icons/like-dark.svg" alt="" style={{ paddingLeft: '10px' }} />
         </button>

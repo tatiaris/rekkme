@@ -53,11 +53,11 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (realurl[0].includes('spotify')) {
       getPreview(realurl[0]).then((data) => {
-        res.status(200).json(data);
+        res.status(200).json({ ...data, category: 'music' });
       });
     } else if (realurl[0].includes('youtube') || realurl[0].includes('youtu.be')) {
       youtube.metadata(realurl[0]).then((json) => {
-        res.status(200).json({ ...json, image: json.thumbnail_url });
+        res.status(200).json({ ...json, image: json.thumbnail_url, category: 'movies', link: realurl[0] });
       });
     } else if (realurl) {
       (async () => {
