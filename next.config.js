@@ -5,6 +5,16 @@ module.exports = withPWA({
     dest: 'public',
     register: true,
     skipWaiting: true
+  },
+  async rewrites() {
+    return {
+      fallback: [
+        {
+          source: '/:path*',
+          destination: `https://69c6-165-91-13-212.ngrok.io/:path*`
+        }
+      ]
+    };
   }
 });
 
