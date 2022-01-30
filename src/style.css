@@ -407,6 +407,9 @@ button:hover, a:hover {
   transition: opacity .2s;
   border-radius: 5px;
 }
+.slider-container input.light {
+  background: var(--main-bg-color);
+}
 .slider-container input::-webkit-slider-thumb {
   margin-top: 13px;
   appearance: none;
@@ -551,6 +554,9 @@ button:hover, a:hover {
 }
 
 .my-reks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 0 20px;
 }
 
