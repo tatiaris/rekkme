@@ -12,10 +12,10 @@ export const QueueCard: React.FC<QueuecardProps> = (props) => {
   const content = props.content;
   const order = props.order;
   return (
-    <div className="queuecard">
+    <div className="rekkcard" style={{ backgroundColor: '#463263' }}>
       <div className="details-container">
-        <div style={{ height: '100%', textAlign: 'left', padding: '10px 10px' }}>
-          <span>{order}</span>
+        <div style={{ height: '100%', textAlign: 'left', padding: '14px 14px', backgroundColor: '#E5BE7D', borderRadius: '5px' }}>
+          <span style={{ color: '#2F1C4C' }}>{order}</span>
         </div>
         <div style={{ width: '100%', textAlign: 'left', padding: '0 10px' }}>
           <span style={{ fontSize: '20px' }}>

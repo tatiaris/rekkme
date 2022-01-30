@@ -194,6 +194,17 @@ export const getFriendList = async (setFriendList) => {
   }
 };
 
+export const getReksFromMe = async (setRekkFromMe) => {
+  try {
+    const res = await fetch(config.springUrl + `/reks/from`, { credentials: 'include' });
+    const reksData = await res.json();
+    setRekkFromMe(reksData);
+  } catch (error) {
+    console.log('Error:', error);
+    setRekkFromMe([]);
+  }
+};
+
 export const getQueue = async (setQueue) => {
   try {
     const res = await fetch(config.springUrl + `/reks/queue`, { credentials: 'include' });

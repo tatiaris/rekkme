@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Navbar from '../../components/common/Navbar';
-import { circularText, getReksToMe } from '../../components/Helper';
+import { circularText, getReksToMe, getReksFromMe } from '../../components/Helper';
+import RekkFromCard from '../../components/ui/RekkFromCard';
 
 const UserPage = (props): React.ReactNode => {
   const router = useRouter();
@@ -9,15 +10,22 @@ const UserPage = (props): React.ReactNode => {
   const user = props.userSession;
   const [selectedTab, setSelectedTab] = useState('for-you');
   const [reksToMe, setReksToMe] = useState([]);
+  const [reksFromMe, setReksFromMe] = useState([]);
 
   useLayoutEffect(() => {
     if (document) {
       circularText(user?.firstName || '', 100, 0);
       getReksToMe(setReksToMe);
+      getReksFromMe(setReksFromMe);
     }
   }, [user]);
 
   if (username == user?.username) {
+    const reksFromMeList = reksFromMe.map((rek, i) => (
+      <>
+        <RekkFromCard content={rek} key={i} />
+      </>
+    ));
     return (
       <>
         <Navbar userSession={props.userSession} pageTitle="" />
@@ -95,7 +103,9 @@ const UserPage = (props): React.ReactNode => {
                 </div>
               </div>
             </div>
-            <div className={`profile-reks-container ${selectedTab == 'from-you' ? 'selected' : ''}`}></div>
+            <div className={`profile-reks-container ${selectedTab == 'from-you' ? 'selected' : ''}`}>
+              <>{reksFromMeList}</>
+            </div>
           </div>
         </div>
       </>
