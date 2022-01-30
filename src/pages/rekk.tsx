@@ -48,6 +48,8 @@ const Rekk = (props): React.ReactNode => {
             <b>{processedRekkData?.title}</b> by <b>{processedRekkData?.artist}</b>
           </span>
           <br />
+          {processedRekkData?.title}
+          <br />
           <br />
           <div>
             <img width="250px" src={processedRekkData?.image} alt="" style={{ borderRadius: '5px' }} />
