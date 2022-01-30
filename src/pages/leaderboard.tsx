@@ -2,7 +2,81 @@ import React from 'react';
 import Navbar from '../components/common/Navbar';
 
 const Leaderboard = (props): React.ReactNode => {
-  const cardContent: any = [
+  const topRekks: any = [
+    {
+      image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/3/0/FNK_the-best-chewy-chocolate-chip-cookies_H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1568050722773.jpeg',
+      maintext: 'Choco Chip Cookies',
+      secondarytext: '⭐️⭐️⭐️⭐️⭐️',
+      numrekks: 471
+    },
+    {
+      image: 'https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/8d/dd/5c/8ddd5c28-adfa-699d-9df5-750a48ae8320/source/600x600bb.jpg',
+      maintext: 'drivers license',
+      secondarytext: 'Olivia Rodrigo',
+      numrekks: 447
+    },
+    {
+      image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSF4okCRT0rbKLVSFMb9Mb_2yvstZcHLsavrRI7xS5BkkSnNdPy',
+      maintext: 'Parasite',
+      secondarytext: 'Thriller/Drama',
+      numrekks: 428
+    },
+    {
+      image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/12/20/0/FNK_Baked-Salmon_H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1576855635102.jpeg',
+      maintext: 'Baked Salmon',
+      secondarytext: '⭐️⭐️⭐️⭐️⭐️',
+      numrekks: 397
+    },
+    {
+      image: 'https://i5.walmartimages.com/asr/1c530c63-a3e9-4b76-8551-8d6928cfbcb4_1.a78a4ba6644aacbd4537ebd548edbe40.jpeg',
+      maintext: 'the social network',
+      num: 345,
+      secondarytext: 'Drama/History'
+    },
+    {
+      image: 'https://is4-ssl.mzstatic.com/image/thumb/Music124/v4/99/c0/41/99c04123-d97e-c975-c4c1-97f3697efd39/source/600x600bb.jpg',
+      maintext: 'Welcome to the Party',
+      secondarytext: 'Pop Smoke',
+      numrekks: 349
+    },
+    {
+      image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/3/0/FNK_the-best-sloppy-joe_H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1567523595923.jpeg',
+      maintext: 'Sloppy Joe',
+      secondarytext: '30min',
+      numrekks: 322
+    },
+    {
+      image: 'https://is3-ssl.mzstatic.com/image/thumb/Music115/v4/e0/c0/ba/e0c0baf8-0e97-d111-dd17-6b90d9c195b2/source/600x600bb.jpg',
+      maintext: 'STAY',
+      secondarytext: 'The Kid & Justin Bieber',
+      numrekks: 317
+    },
+    {
+      image: 'https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/a7/28/b2/a728b2bf-e6be-9340-ba7d-97506e5e2b0c/source/600x600bb.jpg',
+      maintext: 'Easy On Me',
+      secondarytext: 'Adele',
+      numrekks: 252
+    },
+    {
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdPugWzSnX3TWCYO-KlF4f5VF2JeMp6VGdAi2lQTLzsqHq00dW',
+      maintext: 'Titanic',
+      secondarytext: 'Romance/Drama',
+      numrekks: 242
+    },
+    {
+      image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/3/0/FNK_the-best-quiche-lorraine_H_s4x3.jpg.rend.hgtvcom.966.725.suffix/1567523605408.jpeg',
+      maintext: 'Quiche',
+      secondarytext: '⭐️⭐️⭐️⭐️',
+      numrekks: 229
+    },
+    {
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKEVEEwyYlEKJbnneJYQ2moCBaammhvILoI7_ayPgU2TN9pLPV',
+      maintext: 'Shawshank Redemption',
+      secondarytext: 'Drama/Crime',
+      numrekks: 220
+    }
+  ];
+  const topUsers: any = [
     {
       name: 'Josh',
       image: 'https://raw.githubusercontent.com/tatiaris/rekkme/e3bd5b661546a556cd5b842a6d53c39deccf921c/public/avatars/guy-1.png',
