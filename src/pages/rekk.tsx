@@ -45,7 +45,7 @@ const Rekk = (props): React.ReactNode => {
     if (recommendeeList.length > 0) {
       const rekkData = {
         category: processedRekkData.category,
-        usernames: friendList.map((friend) => friend.username),
+        usernames: recommendeeList,
         url: processedRekkData.link,
         wager: wagerValue,
         title: processedRekkData.title,
