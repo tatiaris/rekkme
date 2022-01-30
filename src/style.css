@@ -579,3 +579,41 @@ button:hover, a:hover {
 .notification-title {
   font-weight: bold;
 }
+
+.leaderboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.leaderboard-person {
+  color: var(--main-bg-color);
+  font-size: 26px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: var(--heading-text-color);
+  display: flex;
+  justify-content: space-between;
+}
+.leaderboard-person div {
+  width: 100%;
+}
+.user-data {
+  padding: 20px 0px;
+}
+.user-data .user-name {
+  font-weight: bold;
+}
+.user-data .user-category {
+  font-size: 20px;
+}
+.rekpoints-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blob-points {
+  background-image: url('/misc/blob.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
+}
