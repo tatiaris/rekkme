@@ -11,7 +11,7 @@ module.exports = withPWA({
       fallback: [
         {
           source: '/:path*',
-          destination: `https://69c6-165-91-13-212.ngrok.io/:path*`
+          destination: `https://rekkme-backend-app.herokuapp.com/:path*`
         }
       ]
     };
