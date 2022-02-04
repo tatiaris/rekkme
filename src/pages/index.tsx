@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/common/Navbar';
 import { getRekActivity } from '../components/Helper';
 import RekkCard from '../components/ui/Rekkcard';
@@ -7,7 +7,7 @@ interface FeedProps {
   userSession: any;
 }
 const Feed = (props): React.ReactNode => {
-  const [rekFeed, setRekFeed] = React.useState([]);
+  const [rekFeed, setRekFeed] = useState([]);
 
   useEffect(() => {
     getRekActivity(setRekFeed);

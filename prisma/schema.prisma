@@ -48,7 +48,7 @@ model reks {
 model comment {
   id      String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   message String
-  rek     rek   @relation(fields: [rekid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  rek     reks   @relation(fields: [rekid], references: [id], onDelete: NoAction, onUpdate: NoAction)
   rekid   String @db.ObjectId
   user    user   @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
   userid  String @db.ObjectId

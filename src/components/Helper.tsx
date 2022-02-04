@@ -61,7 +61,9 @@ export const fetchCompleteCollection = async (collection: string, setVariable) =
 
 export const getUserSession = async () => {
   try {
-    const res = await fetch(config.springUrl + `/session`, { credentials: 'include' });
+    const res = await fetch(config.springUrl + `/session`, {
+      credentials: 'include'
+    });
     const sessionData = await res.json();
     return sessionData.session;
   } catch (error) {
@@ -93,7 +95,7 @@ export const login = (username, password, setLoginFailed, redirect = '/') => {
 };
 
 export const logout = (redirect = '/') => {
-  fetch(config.springUrl + `/api/logout`, {
+  fetch(config.springUrl + `/logout`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
