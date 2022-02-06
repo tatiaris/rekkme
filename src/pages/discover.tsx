@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../components/common/Navbar';
 import { circularText } from '../components/Helper';
+import styles from '../components/ui/styles/pages/discover.module.css';
 
 const Discover = (props): React.ReactNode => {
   useEffect(() => {
@@ -18,53 +19,53 @@ const Discover = (props): React.ReactNode => {
   return (
     <>
       <Navbar userSession={props.userSession} pageTitle="Discover" />
-      <div className="discover-container">
-        <div className="category-container">
+      <div className={styles.discover_container}>
+        <div className={styles.category_container}>
           <a href="/discover/music">
             <div className="circTxt">
-              <img width="150" src="/badges/MusicBadge.png" alt="" />
+              <img src="/badges/MusicBadge.png" alt="" />
             </div>
           </a>
         </div>
-        <div className="category-container">
+        <div className={styles.category_container}>
           <a href="/discover/tv">
             <div className="circTxt">
-              <img width="150" src="/badges/TVBadge.png" alt="" />
+              <img src="/badges/TVBadge.png" alt="" />
             </div>
           </a>
         </div>
-        <div className="category-container">
+        <div className={styles.category_container}>
           <a href="/discover/book">
             <div className="circTxt">
-              <img width="150" src="/badges/BookBadge.png" alt="" />
+              <img src="/badges/BookBadge.png" alt="" />
             </div>
           </a>
         </div>
-        <div className="category-container">
+        <div className={styles.category_container}>
           <a href="/discover/product">
             <div className="circTxt">
-              <img width="150" src="/badges/ProductBadge.png" alt="" />
+              <img src="/badges/ProductBadge.png" alt="" />
             </div>
           </a>
         </div>
-        <div className="category-container">
+        <div className={styles.category_container}>
           <a href="/discover/bites">
             <div className="circTxt">
-              <img width="150" src="/badges/RestaurantBadge.png" alt="" />
+              <img src="/badges/RestaurantBadge.png" alt="" />
             </div>
           </a>
         </div>
-        <div className="category-container">
+        <div className={styles.category_container}>
           <a href="/discover/recipes">
             <div className="circTxt">
-              <img width="150" src="/badges/RecipeBadge.png" alt="" />
+              <img src="/badges/RecipeBadge.png" alt="" />
             </div>
           </a>
         </div>
-        <div className="category-container">
+        <div className={styles.category_container}>
           <a href="/discover/travel">
             <div className="circTxt">
-              <img width="150" src="/badges/TravelBadge.png" alt="" />
+              <img src="/badges/TravelBadge.png" alt="" />
             </div>
           </a>
         </div>

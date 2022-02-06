@@ -1,0 +1,172 @@
+/* Phone Screen */
+
+@media (max-width: 424px) {
+  .phone_ui {
+    display: block;
+  }
+  .leaderboard_container {
+    padding: 0 20px;
+  }
+  .rekk_tabs_container {
+    height: 100%;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  .tabs_nav_container {
+    background-color: #e4cfad;
+    border-radius: 25px;
+  }
+  .rekk_tabs_container,
+  .tabs_nav_container {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  .tabs_nav_container .tab_nav_item {
+    width: 100%;
+  }
+  .tab_nav_item.selected button {
+    background-color: var(--heading-text-color);
+    border-radius: 25px;
+  }
+  .tab_nav_item button {
+    width: 100%;
+    background-color: transparent;
+    color: var(--main-bg-color);
+    font-weight: 700;
+  }
+  .leaderboard_content {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+    gap: 20px;
+  }
+  .leaderboard_person {
+    display: flex;
+    color: var(--main-bg-color);
+    font-size: 26px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: var(--heading-text-color);
+    justify-content: space-between;
+  }
+  .person_image img {
+    width: 100px;
+  }
+  .leaderboard_person div {
+    width: 100%;
+  }
+  .user_data {
+    padding: 20px 0;
+  }
+  .user_data .user_name {
+    font-weight: 700;
+  }
+  .user_data .user_category {
+    font-size: 20px;
+  }
+  .rekpoints_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .blob_points {
+    background-image: url(/misc/blob.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+  }
+}
+
+
+/* Phone + Tablet Screen */
+
+@media (min-width: 425px) {
+  .leaderboard_container {
+    padding: 0 20px;
+  }
+  .rekk_tabs_container {
+    height: 100%;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  .tabs_nav_container {
+    background-color: #e4cfad;
+    border-radius: 25px;
+  }
+  .rekk_tabs_container,
+  .tabs_nav_container {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  .tabs_nav_container .tab_nav_item {
+    width: 100%;
+  }
+  .tab_nav_item.selected button {
+    background-color: var(--heading-text-color);
+    border-radius: 25px;
+  }
+  .tab_nav_item button {
+    width: 100%;
+    background-color: transparent;
+    color: var(--main-bg-color);
+    font-weight: 700;
+  }
+  .leaderboard_content {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+    gap: 20px;
+  }
+  .leaderboard_person {
+    display: flex;
+    color: var(--main-bg-color);
+    font-size: 26px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: var(--heading-text-color);
+    justify-content: space-between;
+  }
+  .person_image img {
+    width: 100px;
+  }
+  .leaderboard_person div {
+    width: 100%;
+  }
+  .user_data {
+    padding: 20px 0;
+  }
+  .user_data .user_name {
+    font-weight: 700;
+  }
+  .user_data .user_category {
+    font-size: 20px;
+  }
+  .rekpoints_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .blob_points {
+    background-image: url(/misc/blob.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+  }
+}
+
+
+/* Horizontal Tablet Screen */
+
+@media (min-width: 768px) {}
+
+
+/* Laptop Screen */
+
+@media (min-width: 1024px) {}
+
+
+/* PC Screen */
+
+@media (min-width: 1440px) {}

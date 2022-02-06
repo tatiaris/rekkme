@@ -1,0 +1,57 @@
+/* Phone Screen */
+
+@media (max-width: 424px) {
+  .discover_container {
+    padding: 0 20px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 40px;
+    gap: 40px;
+    justify-content: center;
+  }
+  .discover_container .category_container a {
+    color: var(--regular-text-color);
+  }
+  .category_container img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+/* Phone + Tablet Screen */
+
+@media (min-width: 425px) {
+  .discover_container {
+    padding: 0 20px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 40px;
+    gap: 40px;
+    justify-content: center;
+  }
+  .discover_container .category_container a {
+    color: var(--regular-text-color);
+  }
+  .category_container img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+/* Horizontal Tablet Screen */
+
+@media (min-width: 768px) {}
+
+
+/* Laptop Screen */
+
+@media (min-width: 1024px) {}
+
+
+/* PC Screen */
+
+@media (min-width: 1440px) {}

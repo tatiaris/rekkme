@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/common/Navbar';
 import { navigatePath, signupUser } from '../components/Helper';
 import Spacer from '../components/ui/Spacer';
-import StringInput from '../components/ui/StringInput';
+import styles from '../components/ui/styles/pages/signup.module.css';
 
 const Signup = ({ userSession }): React.ReactNode => {
   const [fname, setFName] = useState('');
@@ -12,7 +12,8 @@ const Signup = ({ userSession }): React.ReactNode => {
   const [password, setPassword] = useState('');
   const [signupFailed, setSignupFailed] = useState(false);
 
-  const triggerSignupUser = () => {
+  const triggerSignupUser = (e) => {
+    e.preventDefault();
     const signupData = {
       username: username,
       password: password,
@@ -23,40 +24,40 @@ const Signup = ({ userSession }): React.ReactNode => {
     signupUser(signupData, setSignupFailed);
   };
 
-  useEffect(() => {
-    if (document) {
-      document.body.classList.add('fancy-bg');
-    }
-  }, []);
-
   if (userSession && userSession['id'] === '0') return <></>;
   if (userSession && userSession['id'] !== '0') navigatePath('/');
   else {
     return (
       <>
         <Navbar userSession={userSession} pageTitle="Sign Up" />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="signup-inp-container">
-          <StringInput config={{ name: 'fname', label: 'First Name', type: 'text', placeholder: 'John' }} updateFunc={setFName} />
-          <Spacer />
-          <StringInput config={{ name: 'lname', label: 'Last Name', type: 'text', placeholder: 'Doe' }} updateFunc={setLName} />
-          <Spacer />
-          <StringInput config={{ name: 'email', label: 'E-mail', type: 'text', placeholder: 'johndoe@gmail.com' }} updateFunc={setEmail} />
-          <Spacer />
-          <StringInput config={{ name: 'username', label: 'Username', type: 'text', placeholder: 'jdoe' }} updateFunc={setUsername} />
-          <Spacer />
-          <StringInput config={{ name: 'password', label: 'Password', type: 'password', placeholder: 'johndoe123' }} updateFunc={setPassword} />
-          {signupFailed && (
-            <div>
-              <Spacer />
-              <span className="err-msg">Signup failed</span>
-            </div>
-          )}
-          <Spacer value="12px" />
-          <button onClick={triggerSignupUser}>Submit</button>
+        <div className={styles.bg_container}></div>
+        <div className={styles.signup_page_container} style={{ marginTop: '50px' }}>
+          <div className={styles.signup_form_container}>
+            <form onSubmit={triggerSignupUser}>
+              First Name
+              <input type="text" placeholder="John" name="fname" onChange={(e) => setFName(e.target.value)} />
+              <Spacer value="10px" />
+              Last Name
+              <input type="text" placeholder="Doe" name="lname" onChange={(e) => setLName(e.target.value)} />
+              <Spacer value="10px" />
+              Email
+              <input type="text" placeholder="johndoe@gmail.com" name="email" onChange={(e) => setEmail(e.target.value)} />
+              <Spacer value="10px" />
+              Username
+              <input type="text" placeholder="johndoe" name="username" onChange={(e) => setUsername(e.target.value)} />
+              <Spacer value="10px" />
+              Password
+              <input type="password" placeholder="123" name="password" onChange={(e) => setPassword(e.target.value)} />
+              {signupFailed && (
+                <div>
+                  <Spacer />
+                  <span className={styles.err_msg}>&#9888; Something went wrong.</span>
+                </div>
+              )}
+              <Spacer value="15px" />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         </div>
       </>
     );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/common/Navbar';
+import styles from '../components/ui/styles/pages/leaderboard.module.css';
 
 const Leaderboard = (props): React.ReactNode => {
   const topRekks: any = [
@@ -186,68 +187,66 @@ const Leaderboard = (props): React.ReactNode => {
   return (
     <>
       <Navbar userSession={props.userSession} pageTitle="Leaderboard" />
-      <div className="leaderboard-container">
-        <div className="rekk-tabs-container">
-          <div className="tabs-nav-container">
-            <div className={`tab-nav-item ${selectedTab == 'people' ? 'selected' : ''}`}>
+      <div className={`${styles.leaderboard_container} ${styles.phone_ui}`}>
+        <div className={styles.rekk_tabs_container}>
+          <div className={styles.tabs_nav_container}>
+            <div className={`${styles.tab_nav_item} ${selectedTab == 'people' ? styles.selected : ''}`}>
               <button onClick={() => setSelectedTab('people')}>People</button>
             </div>
-            <div className={`tab-nav-item ${selectedTab == 'rekks' ? 'selected' : ''}`}>
+            <div className={`${styles.tab_nav_item} ${selectedTab == 'rekks' ? styles.selected : ''}`}>
               <button onClick={() => setSelectedTab('rekks')}>Rekks</button>
             </div>
-            <div className={`tab-nav-item ${selectedTab == 'friends' ? 'selected' : ''}`}>
+            <div className={`${styles.tab_nav_item} ${selectedTab == 'friends' ? styles.selected : ''}`}>
               <button onClick={() => setSelectedTab('friends')}>Friends</button>
             </div>
           </div>
         </div>
         <br />
         <br />
-        <div className="leaderboard-content">
+        <div className={styles.leaderboard_content}>
           {selectedTab == 'people' &&
             topUsers.map((user, i) => (
-              <div className="leaderboard-person" key={i}>
-                <div className="leaderboard-person-image">
-                  <img width="100" src={user.image} alt="" />
+              <div className={styles.leaderboard_person} key={i}>
+                <div className={styles.person_image}>
+                  <img src={user.image} alt="" />
                 </div>
-                <div className="user-data">
-                  <div className="user-name">{user.name}</div>
-                  <div className="user-category">
+                <div className={styles.user_data}>
+                  <div className={styles.user_name}>{user.name}</div>
+                  <div className={styles.user_category}>
                     <i>{user.category}</i>
                   </div>
                 </div>
-                <div className="rekpoints-container blob-points">
-                  <span className="">{user.points}</span>
-                </div>
+                <div className={`${styles.rekpoints_container} ${styles.blob_points}`}>{user.points}</div>
               </div>
             ))}
           {selectedTab == 'rekks' &&
             topRekks.map((rekk, i) => (
-              <div className="leaderboard-person" key={i}>
-                <div className="leaderboard-person-image">
-                  <img width="100" src={rekk.image} alt="" />
+              <div className={styles.leaderboard_person} key={i}>
+                <div className={styles.person_image}>
+                  <img src={rekk.image} alt="" />
                 </div>
-                <div className="user-data" style={{ padding: '0px' }}>
-                  <div className="user-name">{rekk.maintext}</div>
-                  <div className="user-category">
+                <div className={styles.user_data} style={{ padding: '0px' }}>
+                  <div className={styles.user_name}>{rekk.maintext}</div>
+                  <div className={styles.user_category}>
                     <i>{rekk.secondarytext}</i>
                   </div>
                 </div>
-                <div className="rekpoints-container blob-points">{rekk.numrekks}</div>
+                <div className={`${styles.rekpoints_container} ${styles.blob_points}`}>{rekk.numrekks}</div>
               </div>
             ))}
           {selectedTab == 'friends' &&
             topFriends.map((user, i) => (
-              <div className="leaderboard-person" key={i}>
-                <div className="leaderboard-person-image">
-                  <img width="100" src={user.image} alt="" />
+              <div className={styles.leaderboard_person} key={i}>
+                <div className={styles.person_image}>
+                  <img src={user.image} alt="" />
                 </div>
-                <div className="user-data">
-                  <div className="user-name">{user.name}</div>
-                  <div className="user-category">
+                <div className={styles.user_data}>
+                  <div className={styles.user_name}>{user.name}</div>
+                  <div className={styles.user_category}>
                     <i>{user.category}</i>
                   </div>
                 </div>
-                <div className="rekpoints-container blob-points">{user.points}</div>
+                <div className={`${styles.rekpoints_container} ${styles.blob_points}`}>{user.points}</div>
               </div>
             ))}
         </div>

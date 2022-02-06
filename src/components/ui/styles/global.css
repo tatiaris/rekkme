@@ -1,0 +1,156 @@
+/* GENERAL SETTINGS START */
+
+:root {
+  --main-bg-color: #2F1C4C;
+  --secondary-bg-color: #463263;
+  --regular-text-color: white;
+  --heading-text-color: #E5BE7D;
+  --default-font-size: 18px;
+  --default-font-family: 'Roboto', sans-serif;
+  --default-font-weight: 400;
+  --default-border-radius: 5px;
+  --default-transition-speed: 200ms;
+  --default-padding: 10px;
+}
+
+* {
+  font-family: var(--default-font-family) !important;
+  transition: var(--default-transition-speed);
+}
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--regular-text-color);
+  margin: 0;
+  font-size: var(--default-font-size);
+  font-family: var(--default-font-family);
+}
+
+h4,
+h5 {
+  margin: 0 !important;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 0 10px;
+  line-height: 2.5;
+  border: 1px solid #ccc;
+  border-radius: var(--default-border-radius);
+  transition: var(--default-transition-speed);
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 0 10px;
+  line-height: 2.5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: 200ms;
+}
+
+button,
+.button {
+  background-color: white;
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: 'Roboto';
+  font-size: 0.8rem;
+}
+
+button.flat,
+.button.flat {
+  box-shadow: none;
+  border: 1px solid #ccc;
+}
+
+a.wrapper {
+  text-decoration: none;
+}
+
+a.button {
+  text-decoration: none;
+  color: black;
+}
+
+button:hover,
+a:hover {
+  cursor: pointer;
+}
+
+.input-container {
+  width: 250px;
+}
+
+.input-container.fill {
+  width: 100%;
+}
+
+.input-helper-text {
+  color: #666666;
+  font-size: small;
+  font-style: italic;
+}
+
+#__next {
+  overflow-x: visible !important;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.flex-wrap-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gpay-card-info-container {
+  min-width: 100% !important;
+}
+
+.flex-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+.icon-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: .8rem;
+  cursor: pointer;
+}
+
+.circTxt {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 2px 4px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* GENERAL SETTINGS END */

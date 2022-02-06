@@ -1,0 +1,23 @@
+/* Phone Screen */
+
+@media (max-width: 424px) {}
+
+
+/* Phone + Tablet Screen */
+
+@media (min-width: 425px) {}
+
+
+/* Horizontal Tablet Screen */
+
+@media (min-width: 768px) {}
+
+
+/* Laptop Screen */
+
+@media (min-width: 1024px) {}
+
+
+/* PC Screen */
+
+@media (min-width: 1440px) {}

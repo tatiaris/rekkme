@@ -3,6 +3,7 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Navbar from '../../components/common/Navbar';
 import { circularText, getReksToMe, getReksFromMe } from '../../components/Helper';
 import RekkFromCard from '../../components/ui/RekkFromCard';
+import styles from '../../components/ui/styles/pages/profile.module.css';
 
 const UserPage = (props): React.ReactNode => {
   const router = useRouter();
@@ -14,7 +15,7 @@ const UserPage = (props): React.ReactNode => {
 
   useLayoutEffect(() => {
     if (document) {
-      circularText(user?.firstName || '', 100, 0);
+      circularText(user?.firstName || '', 120, 0, 90);
       getReksToMe(setReksToMe);
       getReksFromMe(setReksFromMe);
     }
@@ -29,72 +30,72 @@ const UserPage = (props): React.ReactNode => {
     return (
       <>
         <Navbar userSession={props.userSession} pageTitle="" />
-        <div className="user-page-container">
-          <div className="personal-section">
-            <div className="profile-pic-container">
+        <div className={styles.profile_page_container}>
+          <div className={styles.profile_section}>
+            <div className={styles.profile_pic_container}>
               <div className="circTxt">
-                <img width="180" src={user?.imageUrl} alt="" />
+                <img src={user?.imageUrl} alt="" />
               </div>
             </div>
-            <div className="points-container">
-              <div className="points-title">{user?.rekPoints}</div>
+            <div className={styles.points_container}>
+              <div className={styles.points_title}>{user?.rekPoints}</div>
               <div>points</div>
             </div>
           </div>
-          <div className="rekk-tabs-container">
-            <div className="tabs-nav-container">
-              <div className={`tab-nav-item ${selectedTab == 'for-you' ? 'selected' : ''}`}>
+          <div className={styles.rekk_tabs_container}>
+            <div className={styles.tabs_nav_container}>
+              <div className={`${styles.tab_nav_item} ${selectedTab == 'for-you' ? styles.selected : ''}`}>
                 <button onClick={() => setSelectedTab('for-you')}>FOR YOU</button>
               </div>
-              <div className={`tab-nav-item ${selectedTab == 'from-you' ? 'selected' : ''}`}>
+              <div className={`${styles.tab_nav_item} ${selectedTab == 'from-you' ? styles.selected : ''}`}>
                 <button onClick={() => setSelectedTab('from-you')}>FROM YOU</button>
               </div>
             </div>
-            <div className={`profile-reks-container ${selectedTab == 'for-you' ? 'selected' : ''}`}>
-              <div className="profile-categories-container">
-                <div className="category-container">
+            <div className={`${styles.profile_reks_container} ${selectedTab == 'for-you' ? styles.selected : ''}`}>
+              <div className={styles.profile_categories_container}>
+                <div className={styles.category_container}>
                   <a href="/my/music">
                     <div className="circTxt">
                       <img width="100" src="/badges/MusicBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
-                <div className="category-container">
+                <div className={styles.category_container}>
                   <a href="/my/tv">
                     <div className="circTxt">
                       <img width="100" src="/badges/TVBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
-                <div className="category-container">
+                <div className={styles.category_container}>
                   <a href="/my/books">
                     <div className="circTxt">
                       <img width="100" src="/badges/BookBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
-                <div className="category-container">
+                <div className={styles.category_container}>
                   <a href="/my/products">
                     <div className="circTxt">
                       <img width="100" src="/badges/ProductBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
-                <div className="category-container">
+                <div className={styles.category_container}>
                   <a href="/my/restaurants">
                     <div className="circTxt">
                       <img width="100" src="/badges/RestaurantBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
-                <div className="category-container">
+                <div className={styles.category_container}>
                   <a href="/my/recipes">
                     <div className="circTxt">
                       <img width="100" src="/badges/RecipeBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
-                <div className="category-container">
+                <div className={styles.category_container}>
                   <a href="/my/travel">
                     <div className="circTxt">
                       <img width="100" src="/badges/TravelBadge.png" alt="" />

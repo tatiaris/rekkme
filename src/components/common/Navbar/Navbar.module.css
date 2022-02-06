@@ -1,0 +1,320 @@
+/* Phone Screen */
+
+@media (max-width: 419px) {
+  .navbar img {
+    width: 30px;
+    height: 30px;
+  }
+  .nav_search_container {
+    width: 40px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .nav_search_container.search_active {
+    width: calc(100vw - 120px);
+    overflow: visible;
+    margin-left: 10px;
+    background-color: white;
+    border-radius: 50px;
+  }
+  .search_inp_1 {
+    background-color: transparent;
+    width: calc(100vw - 180px) !important;
+    border-radius: 50px !important;
+    border: none !important;
+  }
+  .nav_search_container.search_active img {
+    width: 25px;
+    height: 25px;
+  }
+  .hamburger_menu {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -75vw;
+    width: 75vw;
+    height: 100vh;
+    background-color: var(--secondary-bg-color);
+    transition: var(--default-transition-speed);
+  }
+  .hamburger_menu.show {
+    right: 0vw;
+  }
+  .hamburger_menu a,
+  .hamburger_menu div {
+    font-size: 24px;
+    padding: 20px;
+    text-align: center;
+    color: var(--regular-text-color);
+    text-decoration: none;
+  }
+  .hamburger_menu a:nth-child(2n) {
+    background-color: var(--secondary-bg-color);
+  }
+  .hamburger_menu>button {
+    background-color: transparent;
+    color: var(--regular-text-color);
+    font-size: 24px;
+    padding: 20px;
+  }
+  .close_btn_container {
+    padding: 20px !important;
+  }
+  .close_btn_container img {
+    width: 40px;
+    height: 40px;
+  }
+  .menu_logo {
+    width: 200px !important;
+    height: max-content !important;
+  }
+  .page_title {
+    color: var(--heading-text-color);
+    height: 30px;
+  }
+  .page_title.search_active {
+    display: none !important;
+  }
+  .navbar {
+    padding: 20px;
+    font-size: 28px;
+    background-color: transparent;
+    color: #fff;
+  }
+  .navbar .left_container {
+    width: 75px;
+  }
+  .navbar .right_container {
+    width: 75px;
+    justify-content: flex-end;
+  }
+  .search_inp_container.one {
+    display: flex;
+    align-items: center;
+  }
+  .search_inp_container.two {
+    display: none;
+  }
+  .page_title.two {
+    display: none;
+  }
+  .page_title.one {
+    display: flex;
+  }
+}
+
+
+/* Phone + Tablet Screen */
+
+@media (min-width: 420px) {
+  .navbar img {
+    width: 30px;
+    height: 30px;
+  }
+  .nav_search_container {
+    width: 40px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .nav_search_container.search_active {
+    width: calc(100vw - 120px);
+    overflow: visible;
+    margin-left: 10px;
+    background-color: white;
+    border-radius: 50px;
+  }
+  .search_inp_1 {
+    background-color: transparent;
+    width: calc(100vw - 180px) !important;
+    border-radius: 50px !important;
+    border: none !important;
+  }
+  .nav_search_container.search_active img {
+    width: 25px;
+    height: 25px;
+  }
+  .hamburger_menu {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -75vw;
+    width: 75vw;
+    height: 100vh;
+    background-color: var(--secondary-bg-color);
+    transition: var(--default-transition-speed);
+  }
+  .hamburger_menu.show {
+    right: 0vw;
+  }
+  .hamburger_menu a,
+  .hamburger_menu div {
+    font-size: 24px;
+    padding: 20px;
+    text-align: center;
+    color: var(--regular-text-color);
+    text-decoration: none;
+  }
+  .hamburger_menu a:nth-child(2n) {
+    background-color: var(--secondary-bg-color);
+  }
+  .hamburger_menu>button {
+    background-color: transparent;
+    color: var(--regular-text-color);
+    font-size: 24px;
+    padding: 20px;
+  }
+  .close_btn_container {
+    padding: 20px !important;
+  }
+  .close_btn_container img {
+    width: 40px;
+    height: 40px;
+  }
+  .menu_logo {
+    width: 200px !important;
+    height: max-content !important;
+  }
+  .page_title {
+    color: var(--heading-text-color);
+  }
+  .page_title.search_active {
+    display: none !important;
+  }
+  .navbar {
+    padding: 20px;
+    font-size: 28px;
+    background-color: transparent;
+    color: #fff;
+  }
+  .navbar .left_container {
+    width: 75px;
+  }
+  .navbar .right_container {
+    width: 75px;
+    justify-content: flex-end;
+  }
+  .search_inp_container.one {
+    display: block;
+  }
+  .search_inp_container.two {
+    display: none;
+  }
+  .page_title.two {
+    display: none;
+  }
+  .page_title.one {
+    display: flex;
+  }
+}
+
+
+/* Horizontal Tablet Screen */
+
+@media (min-width: 720px) {
+  .navbar img {
+    width: 50px;
+    height: 50px;
+  }
+  .nav_search_container {
+    display: none;
+  }
+  .hamburger_menu {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background-color: var(--secondary-bg-color);
+    transition: var(--default-transition-speed);
+  }
+  .hamburger_menu.show {
+    right: 0vw;
+  }
+  .hamburger_menu a,
+  .hamburger_menu div {
+    font-size: 24px;
+    padding: 20px;
+    text-align: center;
+    color: var(--regular-text-color);
+    text-decoration: none;
+  }
+  .hamburger_menu a:nth-child(2n) {
+    background-color: var(--secondary-bg-color);
+  }
+  .close_btn_container {
+    padding: 20px !important;
+  }
+  .close_btn_container button {
+    width: 50px;
+    height: 50px;
+  }
+  .close_btn_container img {
+    width: 50px;
+    height: 50px;
+  }
+  .menu_logo {
+    width: 200px !important;
+    height: max-content !important;
+  }
+  .page_title {
+    color: var(--heading-text-color);
+    font-size: 40px;
+  }
+  .navbar {
+    padding: 20px;
+    font-size: 30px;
+    background-color: transparent;
+    color: #fff;
+  }
+  .navbar .left_container {
+    width: max-content;
+  }
+  .search_inp_container.one {
+    display: none;
+  }
+  .search_inp_container.two {
+    display: flex;
+    align-items: center;
+    padding: 2px 7px;
+    background-color: white;
+    border-radius: 50px;
+    margin-right: 20px;
+  }
+  .search_inp_container.two img {
+    width: 30px;
+    height: 30px;
+  }
+  .search_inp_container.two input {
+    border: none;
+    width: 200px;
+    border-radius: 50px;
+  }
+  .page_title.two {
+    display: flex;
+    margin-left: 20px;
+  }
+  .page_title.one {
+    display: none;
+  }
+}
+
+
+/* Laptop Screen */
+
+@media (min-width: 1080px) {}
+
+
+/* PC Screen */
+
+@media (min-width: 1440px) {}
