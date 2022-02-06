@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/common/Navbar';
 import { navigatePath, signupUser } from '../components/Helper';
 import Spacer from '../components/ui/Spacer';
@@ -12,6 +12,10 @@ const Signup = ({ userSession }): React.ReactNode => {
   const [password, setPassword] = useState('');
   const [signupFailed, setSignupFailed] = useState(false);
 
+  /**
+   * Bootstrap function to collect the signup data and start the signup process
+   * @param e event
+   */
   const triggerSignupUser = (e) => {
     e.preventDefault();
     const signupData = {

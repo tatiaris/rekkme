@@ -9,13 +9,9 @@ const Login = ({ userSession }): React.ReactNode => {
   const [password, setPassword] = useState('');
   const [loginFailed, setLoginFailed] = useState(false);
 
-  useEffect(() => {
-    if (document) {
-      document.body.classList.add('fancy-bg');
-    }
-  }, []);
-
+  // show nothing if userSession has not loaded yet
   if (userSession && userSession['id'] === '0') return <></>;
+  // redirect to home if user is already logged in
   if (userSession && userSession['id'] !== '0') navigatePath('/');
   else {
     return (

@@ -22,49 +22,49 @@ const Discover = (props): React.ReactNode => {
       <div className={styles.discover_container}>
         <div className={styles.category_container}>
           <a href="/discover/music">
-            <div className="circTxt">
+            <div className="circleText">
               <img src="/badges/MusicBadge.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/tv">
-            <div className="circTxt">
+            <div className="circleText">
               <img src="/badges/TVBadge.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/book">
-            <div className="circTxt">
+            <div className="circleText">
               <img src="/badges/BookBadge.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/product">
-            <div className="circTxt">
+            <div className="circleText">
               <img src="/badges/ProductBadge.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/bites">
-            <div className="circTxt">
+            <div className="circleText">
               <img src="/badges/RestaurantBadge.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/recipes">
-            <div className="circTxt">
+            <div className="circleText">
               <img src="/badges/RecipeBadge.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/travel">
-            <div className="circTxt">
+            <div className="circleText">
               <img src="/badges/TravelBadge.png" alt="" />
             </div>
           </a>

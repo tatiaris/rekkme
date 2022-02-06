@@ -63,38 +63,13 @@ button,
   font-size: 0.8rem;
 }
 
-button.flat,
-.button.flat {
-  box-shadow: none;
-  border: 1px solid #ccc;
-}
-
 a.wrapper {
   text-decoration: none;
-}
-
-a.button {
-  text-decoration: none;
-  color: black;
 }
 
 button:hover,
 a:hover {
   cursor: pointer;
-}
-
-.input-container {
-  width: 250px;
-}
-
-.input-container.fill {
-  width: 100%;
-}
-
-.input-helper-text {
-  color: #666666;
-  font-size: small;
-  font-style: italic;
 }
 
 #__next {
@@ -107,21 +82,10 @@ a:hover {
   overflow: hidden;
 }
 
-.flex-wrap-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
-}
-
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.gpay-card-info-container {
-  min-width: 100% !important;
 }
 
 .flex-middle {
@@ -143,7 +107,7 @@ a:hover {
   cursor: pointer;
 }
 
-.circTxt {
+.circleText {
   position: relative;
   display: flex;
   justify-content: center;

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import Navbar from '../../components/common/Navbar';
-import { circularText, getReksToMe, getReksFromMe } from '../../components/Helper';
+import { circularText, getReksFromMe } from '../../components/Helper';
 import RekkFromCard from '../../components/ui/RekkFromCard';
 import styles from '../../components/ui/styles/pages/profile.module.css';
 
@@ -10,13 +10,11 @@ const UserPage = (props): React.ReactNode => {
   const { username } = router.query;
   const user = props.userSession;
   const [selectedTab, setSelectedTab] = useState('for-you');
-  const [reksToMe, setReksToMe] = useState([]);
   const [reksFromMe, setReksFromMe] = useState([]);
 
   useLayoutEffect(() => {
     if (document) {
       circularText(user?.firstName || '', 120, 0, 90);
-      getReksToMe(setReksToMe);
       getReksFromMe(setReksFromMe);
     }
   }, [user]);
@@ -33,7 +31,7 @@ const UserPage = (props): React.ReactNode => {
         <div className={styles.profile_page_container}>
           <div className={styles.profile_section}>
             <div className={styles.profile_pic_container}>
-              <div className="circTxt">
+              <div className="circleText">
                 <img src={user?.imageUrl} alt="" />
               </div>
             </div>
@@ -55,49 +53,49 @@ const UserPage = (props): React.ReactNode => {
               <div className={styles.profile_categories_container}>
                 <div className={styles.category_container}>
                   <a href="/my/music">
-                    <div className="circTxt">
+                    <div className="circleText">
                       <img width="100" src="/badges/MusicBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
                 <div className={styles.category_container}>
                   <a href="/my/tv">
-                    <div className="circTxt">
+                    <div className="circleText">
                       <img width="100" src="/badges/TVBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
                 <div className={styles.category_container}>
                   <a href="/my/books">
-                    <div className="circTxt">
+                    <div className="circleText">
                       <img width="100" src="/badges/BookBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
                 <div className={styles.category_container}>
                   <a href="/my/products">
-                    <div className="circTxt">
+                    <div className="circleText">
                       <img width="100" src="/badges/ProductBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
                 <div className={styles.category_container}>
                   <a href="/my/restaurants">
-                    <div className="circTxt">
+                    <div className="circleText">
                       <img width="100" src="/badges/RestaurantBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
                 <div className={styles.category_container}>
                   <a href="/my/recipes">
-                    <div className="circTxt">
+                    <div className="circleText">
                       <img width="100" src="/badges/RecipeBadge.png" alt="" />
                     </div>
                   </a>
                 </div>
                 <div className={styles.category_container}>
                   <a href="/my/travel">
-                    <div className="circTxt">
+                    <div className="circleText">
                       <img width="100" src="/badges/TravelBadge.png" alt="" />
                     </div>
                   </a>
