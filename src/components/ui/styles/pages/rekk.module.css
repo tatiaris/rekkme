@@ -1,0 +1,179 @@
+/* Phone Screen */
+
+@media (max-width: 424px) {
+  .rekk_form_container {
+    padding: 20px;
+  }
+  .rekkcard {
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--regular-text-color);
+    background-color: var(--secondary-bg-color);
+    padding: 15px 10px;
+    text-align: center;
+  }
+  .rekk_form_inputs {
+    width: 100%;
+  }
+  .rekk_form_inputs textarea {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    border: 0;
+    margin: 0;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+  }
+  .slider_container {
+    width: 100%;
+  }
+  .slider_container input {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: var(--secondary-bg-color);
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+  }
+  .slider_container input.light {
+    background: var(--main-bg-color);
+  }
+  .slider_container input::-webkit-slider-thumb {
+    margin-top: 13px;
+    appearance: none;
+    width: 60px;
+    height: 60px;
+    background: url('/misc/BoxingGlove.svg') no-repeat;
+    cursor: pointer;
+  }
+  .recommend_btn {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    background-color: var(--heading-text-color);
+    color: var(--main-bg-color);
+  }
+  .friends_container {
+    display: flex;
+    gap: 10px;
+  }
+  .friend_container {
+    font-size: 12px;
+    text-align: center;
+  }
+  .friend_container img {
+    border-radius: 50%;
+    background-color: var(--secondary-bg-color);
+  }
+  .add_friend_msg_container {
+    font-size: 14px;
+    padding: 10px 10px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    color: #ccc;
+  }
+}
+
+
+/* Phone + Tablet Screen */
+
+@media (min-width: 425px) {
+  .rekk_form_container {
+    padding: 20px;
+  }
+  .rekkcard {
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--regular-text-color);
+    background-color: var(--secondary-bg-color);
+    padding: 15px 10px;
+    text-align: center;
+  }
+  .rekk_form_inputs {
+    width: 100%;
+  }
+  .rekk_form_inputs textarea {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    border: 0;
+    margin: 0;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+  }
+  .slider_container {
+    width: 100%;
+  }
+  .slider_container input {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: var(--secondary-bg-color);
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+  }
+  .slider_container input.light {
+    background: var(--main-bg-color);
+  }
+  .slider_container input::-webkit-slider-thumb {
+    margin-top: 13px;
+    appearance: none;
+    width: 60px;
+    height: 60px;
+    background: url('/misc/BoxingGlove.svg') no-repeat;
+    cursor: pointer;
+  }
+  .recommend_btn {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    background-color: var(--heading-text-color);
+    color: var(--main-bg-color);
+  }
+  .friends_container {
+    display: flex;
+    gap: 10px;
+  }
+  .friend_container {
+    font-size: 12px;
+    text-align: center;
+  }
+  .friend_container img {
+    border-radius: 50%;
+    background-color: var(--secondary-bg-color);
+  }
+  .add_friend_msg_container {
+    font-size: 14px;
+    padding: 10px 10px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    color: #ccc;
+  }
+}
+
+
+/* Horizontal Tablet Screen */
+
+@media (min-width: 768px) {}
+
+
+/* Laptop Screen */
+
+@media (min-width: 1024px) {}
+
+
+/* PC Screen */
+
+@media (min-width: 1440px) {}

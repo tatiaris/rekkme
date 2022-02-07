@@ -17,9 +17,9 @@ const Feed = (props): React.ReactNode => {
     <>
       <Navbar userSession={props.userSession} pageTitle="Community" />
       <div className="feed-container">
-        {rekFeed.map((rek: any, i: number) => (
+        {/* {rekFeed?.map((rek: any, i: number) => (
           <RekkCard content={rek} key={i} />
-        ))}
+        ))} */}
       </div>
     </>
   );
