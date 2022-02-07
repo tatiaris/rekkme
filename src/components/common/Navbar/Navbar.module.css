@@ -116,6 +116,7 @@
     height: 0px;
     overflow: hidden;
     background-color: white;
+    z-index: 5;
   }
   .search_functionality_container * {
     color: var(--main-bg-color);
@@ -124,7 +125,6 @@
     overflow: visible;
   }
   .search_result {
-    z-index: 5;
     padding: 10px;
     display: flex;
     border-bottom: 1px solid #ccc;
