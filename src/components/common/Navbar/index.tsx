@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getQuerySearchResults, logout, navigatePath } from '../../Helper';
 import { config } from '../../config';
 import styles from './Navbar.module.css';
@@ -14,19 +14,20 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
   const [showMenu, setShowMenu] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const openSeachField = (): void => {
+    setSearchQuery('');
     setSearchActive(!searchActive);
   };
 
-  const updateSearchQuery = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const query = e.target.value;
-    if (query.length > 2) {
-      getQuerySearchResults(query, setSearchResults);
+  useEffect(() => {
+    if (searchQuery.length > 2) {
+      getQuerySearchResults(searchQuery, setSearchResults);
     } else {
       setSearchResults([]);
     }
-  };
+  }, [searchQuery]);
 
   const sessionActive = props.userSession && props.userSession['id'] !== '0';
   // [
@@ -54,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
             <button onClick={openSeachField} className={`${styles.search_inp_container} ${styles.one} icon-btn vertical-center`} style={{ marginLeft: '10px' }}>
               <img src="/icons/search.svg" alt="" />
             </button>
-            <input onChange={updateSearchQuery} className={`${styles.search_inp_1}`} type="text" placeholder="People" />
+            <input onChange={(e) => setSearchQuery(e.target.value)} className={`${styles.search_inp_1}`} type="text" placeholder="People" />
           </div>
           <div className={`${styles.search_results_container} ${searchResults.length > 0 ? styles.results_available : ''}`} style={{ height: `${searchResults.length * 71}px` }}>
             {searchResults.map((result, index) => (
