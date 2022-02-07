@@ -1,0 +1,38 @@
+.add {
+  background-color: var(--success-color);
+}
+.remove {
+  background-color: var(--failure-color);
+}
+.requested {
+  background-color: var(--heading-text-color);
+}
+
+/* Phone Screen */
+
+@media (max-width: 419px) {
+}
+
+
+/* Phone + Tablet Screen */
+
+@media (min-width: 420px) {
+
+}
+
+
+/* Horizontal Tablet Screen */
+
+@media (min-width: 720px) {
+  
+}
+
+
+/* Laptop Screen */
+
+@media (min-width: 1080px) {}
+
+
+/* PC Screen */
+
+@media (min-width: 1440px) {}

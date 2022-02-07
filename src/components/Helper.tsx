@@ -186,11 +186,22 @@ export const getRekActivity = async (setRekActivity) => {
 export const getFriendList = async (setFriendList) => {
   try {
     const res = await fetch(config.springUrl + `/friends`, { credentials: 'include' });
-    const reksData = await res.json();
-    setFriendList(reksData);
+    const friendList = await res.json();
+    setFriendList(friendList);
   } catch (error) {
     console.log('Error:', error);
     setFriendList([]);
+  }
+};
+
+export const getFriendRequestedList = async (setFriendRequestedList) => {
+  try {
+    const res = await fetch(config.springUrl + `/friends/requests/from`, { credentials: 'include' });
+    const friendRequestedList = await res.json();
+    setFriendRequestedList(friendRequestedList);
+  } catch (error) {
+    console.log('Error:', error);
+    setFriendRequestedList([]);
   }
 };
 
@@ -292,4 +303,37 @@ export const getAllNotifications = async (setAllNotifications) => {
     console.log('Error:', error);
     setAllNotifications([]);
   }
+};
+
+export const getQuerySearchResults = async (query, setSearchResults) => {
+  try {
+    const res = await fetch(config.springUrl + `/explore/users?q=${query}`, { credentials: 'include' });
+    const reksData = await res.json();
+    setSearchResults(reksData);
+  } catch (error) {
+    console.log('Error:', error);
+    setSearchResults([]);
+  }
+};
+
+export const fetchQueryUser = async (userId, setQueryUser) => {
+  try {
+    const res = await fetch(config.springUrl + `/explore/users?q=${userId}`, { credentials: 'include' });
+    const userData = await res.json();
+    setQueryUser(userData[0]);
+  } catch (error) {
+    console.log('Error:', error);
+    setQueryUser(null);
+  }
+};
+
+export const toggleFriendRequest = async (userId) => {
+  fetch(config.springUrl + `/friends/requests/toggle?username=${userId}`, {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username: userId })
+  });
 };

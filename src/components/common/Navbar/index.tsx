@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { logout, navigatePath } from '../../Helper';
+import { getQuerySearchResults, logout, navigatePath } from '../../Helper';
 import { config } from '../../config';
 import styles from './Navbar.module.css';
 
@@ -13,13 +13,35 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
   const [showMenu, setShowMenu] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
   const openSeachField = (): void => {
     setSearchActive(!searchActive);
   };
 
-  const sessionActive = props.userSession && props.userSession['id'] !== '0';
+  const updateSearchQuery = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const query = e.target.value;
+    if (query.length > 2) {
+      getQuerySearchResults(query, setSearchResults);
+    } else {
+      setSearchResults([]);
+    }
+  };
 
+  const sessionActive = props.userSession && props.userSession['id'] !== '0';
+  // [
+  //   {
+  //       "userId": "d62d2fff-921c-45bd-a8a6-8d5472dedb74",
+  //       "username": "tatiaris",
+  //       "firstName": "Rishabh",
+  //       "lastName": "Tatia",
+  //       "email": "rishabhtatia10104@gmail.com",
+  //       "rekPoints": 0,
+  //       "kos": 0,
+  //       "imageUrl": "nullguy-1.png",
+  //       "lastLogin": "2022-02-07 01:09"
+  //   }
+  // ]
   return (
     <div className={`${styles.navbar} flex-middle`}>
       <div className={`${styles.left_container} vertical-center`}>
@@ -27,11 +49,26 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
           <img src={config.small_logo} alt="logo" />
         </a>
         <span className={`${styles.page_title} ${styles.two}`}>{props.pageTitle}</span>
-        <div className={`${styles.nav_search_container} ${searchActive ? styles.search_active : ''}`}>
-          <button onClick={openSeachField} className={`${styles.search_inp_container} ${styles.one} icon-btn vertical-center`} style={{ marginLeft: '10px' }}>
-            <img src="/icons/search.svg" alt="" />
-          </button>
-          <input className={`${styles.search_inp_1}`} type="text" placeholder="People" />
+        <div className={`${styles.search_functionality_container} ${searchActive ? styles.search_active : ''}`}>
+          <div className={`${styles.nav_search_container}`}>
+            <button onClick={openSeachField} className={`${styles.search_inp_container} ${styles.one} icon-btn vertical-center`} style={{ marginLeft: '10px' }}>
+              <img src="/icons/search.svg" alt="" />
+            </button>
+            <input onChange={updateSearchQuery} className={`${styles.search_inp_1}`} type="text" placeholder="People" />
+          </div>
+          <div className={`${styles.search_results_container} ${searchResults.length > 0 ? styles.results_available : ''}`} style={{ height: `${searchResults.length * 71}px` }}>
+            {searchResults.map((result, index) => (
+              <a href={`/u/${result.username}`} key={index} className={`${styles.search_result}`}>
+                <div className={`${styles.search_result_img_container}`}>
+                  <img src={result.imageUrl} alt="" />
+                </div>
+                <div className={`${styles.search_result_text_container}`}>
+                  <div className={`${styles.search_result_name}`}>{`${result.firstName} ${result.lastName}`}</div>
+                  <div className={`${styles.search_result_username}`}>@{result.username}</div>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
       <div className={`flex-center ${styles.page_title} ${styles.one} ${searchActive ? styles.search_active : ''}`}>{props.pageTitle}</div>

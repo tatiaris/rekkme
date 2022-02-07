@@ -5,6 +5,8 @@
   --secondary-bg-color: #463263;
   --regular-text-color: white;
   --heading-text-color: #E5BE7D;
+  --success-color: #abd79f;
+  --failure-color: #ff5252;
   --default-font-size: 18px;
   --default-font-family: 'Roboto', sans-serif;
   --default-font-weight: 400;
