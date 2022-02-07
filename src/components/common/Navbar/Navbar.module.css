@@ -124,6 +124,7 @@
     overflow: visible;
   }
   .search_result {
+    z-index: 5;
     padding: 10px;
     display: flex;
     border-bottom: 1px solid #ccc;
