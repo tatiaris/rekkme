@@ -2,7 +2,7 @@ import FriendRequestButton from 'components/ui/FriendRequestButton';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/common/Navbar';
-import { circularText, fetchQueryUser, getFriendList, getFriendRequestedList, getReksFromMe } from '../../components/Helper';
+import { circularText, fetchQueryUser, getFollowingList, getFollowRequestedList, getReksFromMe } from '../../components/Helper';
 import RekkFromCard from '../../components/ui/RekkFromCard';
 import styles from '../../components/ui/styles/pages/profile.module.css';
 
@@ -13,8 +13,8 @@ const UserPage = (props): React.ReactNode => {
   const [selectedTab, setSelectedTab] = useState('for-you');
   const [reksFromMe, setReksFromMe] = useState([]);
   const [queryUser, setQueryUser] = useState<any>(null);
-  const [friendList, setFriendList] = useState<any>(null);
-  const [friendRequestedList, setFriendRequestedList] = useState(null);
+  const [followingList, setFollowingList] = useState<any>(null);
+  const [followRequestedList, setFollowRequestedList] = useState(null);
 
   useEffect(() => {
     if (username) {
@@ -32,8 +32,8 @@ const UserPage = (props): React.ReactNode => {
 
   useEffect(() => {
     if (user) {
-      getFriendList(setFriendList);
-      getFriendRequestedList(setFriendRequestedList);
+      getFollowingList(setFollowingList);
+      getFollowRequestedList(setFollowRequestedList);
     }
   }, []);
 
@@ -57,7 +57,7 @@ const UserPage = (props): React.ReactNode => {
               <div>points</div>
             </div>
             <div className="flex-center">
-              <FriendRequestButton content={{ friendList, friendRequestedList, currentUser: user, queryUser, setFriendList, setFriendRequestedList }} />
+              <FriendRequestButton content={{ followingList, followRequestedList, currentUser: user, queryUser, setFollowingList, setFollowRequestedList }} />
             </div>
           </div>
           {user.username === queryUser.username && (

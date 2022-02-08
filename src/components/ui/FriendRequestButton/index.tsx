@@ -6,46 +6,46 @@ import styles from './FriendRequestButton.module.css';
  * FriendRequestButton component
  */
 interface propContent {
-  friendRequestedList: any;
-  friendList: any;
+  followRequestedList: any;
+  followingList: any;
   currentUser: any;
   queryUser: any;
-  setFriendList: any;
-  setFriendRequestedList: any;
+  setFollowingList: any;
+  setFollowRequestedList: any;
 }
 interface FriendRequestButtonProps {
   content: propContent;
 }
 export const FriendRequestButton: React.FC<FriendRequestButtonProps> = (props): React.ReactElement => {
-  const { friendRequestedList, friendList, queryUser } = props.content;
+  const { followRequestedList, followingList, queryUser } = props.content;
   let friendReqBtn = <></>;
 
   const addUserToRequestedList = (): void => {
     toggleFriendRequest(queryUser.username);
-    if (friendRequestedList) {
-      props.content.setFriendRequestedList([...friendRequestedList, queryUser]);
+    if (followRequestedList) {
+      props.content.setFollowRequestedList([...followRequestedList, queryUser]);
     } else {
-      props.content.setFriendRequestedList([queryUser]);
+      props.content.setFollowRequestedList([queryUser]);
     }
   };
 
   const removeUserFromRequestedList = (): void => {
-    const remainingRequested = friendRequestedList.filter((f) => f.username !== queryUser.username);
-    props.content.setFriendRequestedList(remainingRequested);
+    const remainingRequested = followRequestedList.filter((f) => f.username !== queryUser.username);
+    props.content.setFollowRequestedList(remainingRequested);
   };
 
-  const removeUserFromFriendList = (): void => {
-    const remainingFriends = friendList.filter((f) => f.username !== queryUser.username);
-    props.content.setFriendRequestedList(remainingFriends);
+  const removeUserFromFollowingList = (): void => {
+    const remainingFriends = followingList.filter((f) => f.username !== queryUser.username);
+    props.content.setFollowRequestedList(remainingFriends);
   };
 
-  if (friendList && friendRequestedList && queryUser.username !== props.content.currentUser.username) {
-    const isFriend = friendList.find((friend: any) => friend.username === queryUser.username);
-    const isFriendRequested = friendRequestedList.find((friend: any) => friend.username === queryUser.username);
-    if (isFriend) {
+  if (followingList && followRequestedList && queryUser.username !== props.content.currentUser.username) {
+    const isFollowing = followingList.find((friend: any) => friend.username === queryUser.username);
+    const isFriendRequested = followRequestedList.find((friend: any) => friend.username === queryUser.username);
+    if (isFollowing) {
       friendReqBtn = (
-        <button onClick={removeUserFromFriendList} className={styles.remove}>
-          REMOVE FRIEND
+        <button onClick={removeUserFromFollowingList} className={styles.remove}>
+          UNFOLLOW
         </button>
       );
     } else if (isFriendRequested) {
@@ -63,7 +63,6 @@ export const FriendRequestButton: React.FC<FriendRequestButtonProps> = (props): 
     }
   }
 
-  console.log(friendList, friendRequestedList);
   return friendReqBtn;
 };
 

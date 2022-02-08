@@ -194,7 +194,22 @@ export const getFriendList = async (setFriendList) => {
   }
 };
 
-export const getFriendRequestedList = async (setFriendRequestedList) => {
+/**
+ * Calls the backend to get the user's friends
+ * @param setFriendList callback function to set the friend list data
+ */
+export const getFollowingList = async (setFriendList) => {
+  try {
+    const res = await fetch(config.springUrl + `/network/following`, { credentials: 'include' });
+    const followingList = await res.json();
+    setFriendList(followingList);
+  } catch (error) {
+    console.log('Error:', error);
+    setFriendList([]);
+  }
+};
+
+export const getFollowRequestedList = async (setFriendRequestedList) => {
   try {
     const res = await fetch(config.springUrl + `/network/requests/from`, { credentials: 'include' });
     const friendRequestedList = await res.json();
