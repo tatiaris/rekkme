@@ -185,7 +185,7 @@ export const getRekActivity = async (setRekActivity) => {
  */
 export const getFriendList = async (setFriendList) => {
   try {
-    const res = await fetch(config.springUrl + `/friends`, { credentials: 'include' });
+    const res = await fetch(config.springUrl + `/network/friends`, { credentials: 'include' });
     const friendList = await res.json();
     setFriendList(friendList);
   } catch (error) {
@@ -196,7 +196,7 @@ export const getFriendList = async (setFriendList) => {
 
 export const getFriendRequestedList = async (setFriendRequestedList) => {
   try {
-    const res = await fetch(config.springUrl + `/friends/requests/from`, { credentials: 'include' });
+    const res = await fetch(config.springUrl + `/network/requests/from`, { credentials: 'include' });
     const friendRequestedList = await res.json();
     setFriendRequestedList(friendRequestedList);
   } catch (error) {
@@ -328,7 +328,7 @@ export const fetchQueryUser = async (userId, setQueryUser) => {
 };
 
 export const toggleFriendRequest = async (userId) => {
-  fetch(config.springUrl + `/friends/requests/toggle?username=${userId}`, {
+  fetch(config.springUrl + `/network/requests/toggle?username=${userId}`, {
     credentials: 'include',
     method: 'POST',
     headers: {
