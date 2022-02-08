@@ -78,6 +78,15 @@
     width: 100%;
     color: #ccc;
   }
+  .overlay_img {
+    display: none;
+  }
+  .overlay_img.show {
+    display: block;
+    position: absolute;
+    top: 0;
+    background-color: #000000b0;
+  }
 }
 
 
@@ -160,6 +169,21 @@
     text-align: center;
     width: 100%;
     color: #ccc;
+  }
+  .clear_btn {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+  }
+  .overlay_img {
+    display: none;
+  }
+  .overlay_img.show {
+    display: block;
+    position: absolute;
+    top: 0;
+    background-color: #000000b0;
   }
 }
 

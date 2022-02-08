@@ -112,7 +112,7 @@ const Rekk = (props): React.ReactNode => {
             <div className={styles.friend_container} key={i}>
               <button className="clear-btn" onClick={() => toggleRecommendee(friend.username)} style={{ position: 'relative' }}>
                 <img width="50" src={friend.imageUrl} alt="" style={{ borderRadius: '50%' }} />
-                <img width="50" src="/icons/check.svg" alt="" className={`overlay-img ${recommendeeList.includes(friend.username) ? 'show' : ''}`} />
+                <img width="50" src="/icons/check.svg" alt="" className={`${styles.overlay_img} ${recommendeeList.includes(friend.username) ? styles.show : ''}`} />
               </button>
               <br />
               <span>{friend.firstName}</span>

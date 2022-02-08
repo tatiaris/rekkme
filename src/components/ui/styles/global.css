@@ -118,5 +118,12 @@ a:hover {
   box-shadow: 2px 4px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
+.clear-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+}
+
 
 /* GENERAL SETTINGS END */
