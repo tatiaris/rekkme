@@ -75,49 +75,49 @@ const UserPage = (props): React.ReactNode => {
                   <div className={styles.category_container}>
                     <a href="/my/music">
                       <div className="circleText">
-                        <img width="100" src="/badges/MusicBadge.png" alt="" />
+                        <img width="100" src="/badge/music.png" alt="" />
                       </div>
                     </a>
                   </div>
                   <div className={styles.category_container}>
                     <a href="/my/tv">
                       <div className="circleText">
-                        <img width="100" src="/badges/TVBadge.png" alt="" />
+                        <img width="100" src="/badge/tv.png" alt="" />
                       </div>
                     </a>
                   </div>
                   <div className={styles.category_container}>
                     <a href="/my/books">
                       <div className="circleText">
-                        <img width="100" src="/badges/BookBadge.png" alt="" />
+                        <img width="100" src="/badge/book.png" alt="" />
                       </div>
                     </a>
                   </div>
                   <div className={styles.category_container}>
                     <a href="/my/products">
                       <div className="circleText">
-                        <img width="100" src="/badges/ProductBadge.png" alt="" />
+                        <img width="100" src="/badge/product.png" alt="" />
                       </div>
                     </a>
                   </div>
                   <div className={styles.category_container}>
                     <a href="/my/restaurants">
                       <div className="circleText">
-                        <img width="100" src="/badges/RestaurantBadge.png" alt="" />
+                        <img width="100" src="/badge/restaurant.png" alt="" />
                       </div>
                     </a>
                   </div>
                   <div className={styles.category_container}>
                     <a href="/my/recipes">
                       <div className="circleText">
-                        <img width="100" src="/badges/RecipeBadge.png" alt="" />
+                        <img width="100" src="/badge/recipe.png" alt="" />
                       </div>
                     </a>
                   </div>
                   <div className={styles.category_container}>
                     <a href="/my/travel">
                       <div className="circleText">
-                        <img width="100" src="/badges/TravelBadge.png" alt="" />
+                        <img width="100" src="/badge/travel.png" alt="" />
                       </div>
                     </a>
                   </div>

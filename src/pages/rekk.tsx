@@ -22,7 +22,6 @@ const Rekk = (props): React.ReactNode => {
   const [wagerValue, setWagerValue] = useState<number>(50);
   const [messageValue, setMessageValue] = useState<string>('');
   const [recommendationSent, setRecommendationSent] = useState<boolean>(false);
-  const [categoryBadge, setCategoryBadge] = useState<string>('musicBadge');
 
   useEffect(() => {
     if (window) {
@@ -38,7 +37,6 @@ const Rekk = (props): React.ReactNode => {
 
   useEffect(() => {
     if (processedRekkData) {
-      setCategoryBadge(`${processedRekkData.category}Badge`);
       setReceivedRekkData(true);
     }
   }, [processedRekkData]);
@@ -108,7 +106,7 @@ const Rekk = (props): React.ReactNode => {
         Who to recommend?
         <div style={{ height: '10px' }}></div>
         <div className={styles.friends_container}>
-          {friendList.map((friend, i) => (
+          {friendList?.map((friend, i) => (
             <div className={styles.friend_container} key={i}>
               <button className="clear-btn" onClick={() => toggleRecommendee(friend.username)} style={{ position: 'relative' }}>
                 <img width="50" src={friend.imageUrl} alt="" style={{ borderRadius: '50%' }} />

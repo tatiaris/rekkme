@@ -5,32 +5,32 @@
 }
 
 .category_badge.tv {
-  background: url('/badges/tvBadge.png');
+  background: url('/badge/tv.png');
   background-size: contain;
 }
 
 .category_badge.music {
-  background: url('/badges/musicBadge.png');
+  background: url('/badge/music.png');
   background-size: contain;
 }
 
 .category_badge.book {
-  background: url('/badges/bookBadge.png');
+  background: url('/badge/book.png');
   background-size: contain;
 }
 
 .category_badge.product {
-  background: url('/badges/productBadge.png');
+  background: url('/badge/product.png');
   background-size: contain;
 }
 
 .category_badge.recipe {
-  background: url('/badges/recipeBadge.png');
+  background: url('/badge/recipe.png');
   background-size: contain;
 }
 
 .category_badge.restaurant {
-  background: url('/badges/restaurantBadge.png');
+  background: url('/badge/restaurant.png');
   background-size: contain;
 }
 

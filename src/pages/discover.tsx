@@ -23,49 +23,49 @@ const Discover = (props): React.ReactNode => {
         <div className={styles.category_container}>
           <a href="/discover/music">
             <div className="circleText">
-              <img src="/badges/MusicBadge.png" alt="" />
+              <img src="/badge/music.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/tv">
             <div className="circleText">
-              <img src="/badges/TVBadge.png" alt="" />
+              <img src="/badge/tv.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/book">
             <div className="circleText">
-              <img src="/badges/BookBadge.png" alt="" />
+              <img src="/badge/book.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/product">
             <div className="circleText">
-              <img src="/badges/ProductBadge.png" alt="" />
+              <img src="/badge/product.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/bites">
             <div className="circleText">
-              <img src="/badges/RestaurantBadge.png" alt="" />
+              <img src="/badge/restaurant.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/recipes">
             <div className="circleText">
-              <img src="/badges/RecipeBadge.png" alt="" />
+              <img src="/badge/recipe.png" alt="" />
             </div>
           </a>
         </div>
         <div className={styles.category_container}>
           <a href="/discover/travel">
             <div className="circleText">
-              <img src="/badges/TravelBadge.png" alt="" />
+              <img src="/badge/travel.png" alt="" />
             </div>
           </a>
         </div>
