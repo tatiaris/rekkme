@@ -57,7 +57,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
       });
     } else if (realurl[0].includes('youtube') || realurl[0].includes('youtu.be')) {
       youtube.metadata(realurl[0]).then((json) => {
-        res.status(200).json({ ...json, image: json.thumbnail_url, category: 'movies', link: realurl[0] });
+        res.status(200).json({ ...json, image: json.thumbnail_url, category: 'tv', link: realurl[0] });
       });
     } else if (realurl) {
       (async () => {

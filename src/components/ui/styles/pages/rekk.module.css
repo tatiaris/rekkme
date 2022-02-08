@@ -1,3 +1,40 @@
+.category_badge {
+  border-radius: 50%;
+  border: 1px solid var(--heading-text-color);
+  margin: auto;
+}
+
+.category_badge.tv {
+  background: url('/badges/tvBadge.png');
+  background-size: contain;
+}
+
+.category_badge.music {
+  background: url('/badges/musicBadge.png');
+  background-size: contain;
+}
+
+.category_badge.book {
+  background: url('/badges/bookBadge.png');
+  background-size: contain;
+}
+
+.category_badge.product {
+  background: url('/badges/productBadge.png');
+  background-size: contain;
+}
+
+.category_badge.recipe {
+  background: url('/badges/recipeBadge.png');
+  background-size: contain;
+}
+
+.category_badge.restaurant {
+  background: url('/badges/restaurantBadge.png');
+  background-size: contain;
+}
+
+
 /* Phone Screen */
 
 @media (max-width: 424px) {
@@ -86,6 +123,10 @@
     position: absolute;
     top: 0;
     background-color: #000000b0;
+  }
+  .category_badge {
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -184,6 +225,10 @@
     position: absolute;
     top: 0;
     background-color: #000000b0;
+  }
+  .category_badge {
+    width: 75px;
+    height: 75px;
   }
 }
 

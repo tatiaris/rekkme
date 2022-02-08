@@ -76,7 +76,7 @@ const Rekk = (props): React.ReactNode => {
       <div className={styles.rekk_form_container}>
         {receivedRekkData ? (
           <div className={styles.rekkcard}>
-            <img width="50" src={`/badges/${categoryBadge}.png`} alt="" style={{ borderRadius: '50%', border: '1px solid gold' }} />
+            <div className={`${styles.category_badge} ${styles[processedRekkData.category]}`}></div>
             <br />
             <div style={{ height: '10px' }}></div>
             <span>
@@ -121,7 +121,7 @@ const Rekk = (props): React.ReactNode => {
           {friendList.length === 0 && <div className={styles.add_friend_msg_container}>Add your friends to recommend something to them!</div>}
         </div>
         <br />
-        {friendList.length > 0 && (
+        {recommendeeList.length > 0 && (
           <button className={styles.recommend_btn} onClick={triggerSendRekk}>
             Recommend
             <img width="20" src="/icons/like-dark.svg" alt="" style={{ paddingLeft: '10px' }} />
