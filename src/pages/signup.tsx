@@ -23,7 +23,8 @@ const Signup = ({ userSession }): React.ReactNode => {
       password: password,
       firstname: fname,
       lastname: lname,
-      email: email
+      email: email,
+      isPublic: true
     };
     signupUser(signupData, setSignupFailed);
   };

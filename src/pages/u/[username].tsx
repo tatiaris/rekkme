@@ -54,10 +54,36 @@ const UserPage = (props): React.ReactNode => {
             </div>
             <div className={styles.points_container}>
               <div className={styles.points_title}>{queryUser?.rekPoints}</div>
-              <div>points</div>
+              <div>Rekk Points</div>
+            </div>
+            <div className={`flex-center ${styles.network_data_container}`}>
+              <div>
+                {queryUser.numFollowers}
+                <br />
+                <small>Followers</small>
+              </div>
+              <div>
+                {queryUser.numFriends}
+                <br />
+                <small>Friends</small>
+              </div>
+              <div>
+                {queryUser.numFollowing}
+                <br />
+                <small>Following</small>
+              </div>
             </div>
             <div className="flex-center">
-              <FriendRequestButton content={{ followingList, followRequestedList, currentUser: user, queryUser, setFollowingList, setFollowRequestedList }} />
+              <FriendRequestButton
+                content={{
+                  followRequestedList: followRequestedList,
+                  followingList: followingList,
+                  currentUser: user,
+                  queryUser: queryUser,
+                  setFollowingList: setFollowingList,
+                  setFollowRequestedList: setFollowRequestedList
+                }}
+              />
             </div>
           </div>
           {user.username === queryUser.username && (
@@ -135,3 +161,19 @@ const UserPage = (props): React.ReactNode => {
 };
 
 export default UserPage;
+
+// {
+//   "userId": "e21e31ae-b820-4630-a377-a0468445d81f",
+//   "username": "danabreo",
+//   "firstName": "Daniel",
+//   "lastName": "Abreo",
+//   "email": "abreo@tamu.edu",
+//   "rekPoints": 0,
+//   "kos": 0,
+//   "imageUrl": "https://github.com/tatiaris/rekkme/raw/master/public/avatars/guy-1.png",
+//   "lastLogin": "2022-02-08 04:08",
+//   "isPublic": true,
+//   "numFriends": 1,
+//   "numFollowing": 1,
+//   "numFollowers": 1
+// }

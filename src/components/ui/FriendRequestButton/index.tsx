@@ -1,4 +1,4 @@
-import { toggleFriendRequest } from 'components/Helper';
+import { deleteFriend, toggleFriendRequest } from 'components/Helper';
 import React from 'react';
 import styles from './FriendRequestButton.module.css';
 
@@ -22,26 +22,39 @@ export const FriendRequestButton: React.FC<FriendRequestButtonProps> = (props): 
 
   const addUserToRequestedList = (): void => {
     toggleFriendRequest(queryUser.username);
-    if (followRequestedList) {
-      props.content.setFollowRequestedList([...followRequestedList, queryUser]);
+    if (queryUser.isPublic) {
+      if (followingList) {
+        props.content.setFollowingList([...followingList, queryUser]);
+      } else {
+        props.content.setFollowingList([queryUser]);
+      }
     } else {
-      props.content.setFollowRequestedList([queryUser]);
+      if (followRequestedList) {
+        props.content.setFollowRequestedList([...followRequestedList, queryUser]);
+      } else {
+        props.content.setFollowRequestedList([queryUser]);
+      }
     }
   };
 
   const removeUserFromRequestedList = (): void => {
+    toggleFriendRequest(queryUser.username);
     const remainingRequested = followRequestedList.filter((f) => f.username !== queryUser.username);
     props.content.setFollowRequestedList(remainingRequested);
   };
 
   const removeUserFromFollowingList = (): void => {
+    deleteFriend(queryUser.username);
     const remainingFriends = followingList.filter((f) => f.username !== queryUser.username);
-    props.content.setFollowRequestedList(remainingFriends);
+    props.content.setFollowingList(remainingFriends);
   };
 
+  // console.log('followRequestedList', followRequestedList);
+  // console.log('followingList', followingList);
+
   if (followingList && followRequestedList && queryUser.username !== props.content.currentUser.username) {
-    const isFollowing = followingList.find((friend: any) => friend.username === queryUser.username);
-    const isFriendRequested = followRequestedList.find((friend: any) => friend.username === queryUser.username);
+    const isFollowing = followingList.find((followingUser: any) => followingUser.username === queryUser.username);
+    const isFriendRequested = followRequestedList.find((requestedUser: any) => requestedUser.username === queryUser.username);
     if (isFollowing) {
       friendReqBtn = (
         <button onClick={removeUserFromFollowingList} className={styles.remove}>
@@ -57,7 +70,7 @@ export const FriendRequestButton: React.FC<FriendRequestButtonProps> = (props): 
     } else {
       friendReqBtn = (
         <button onClick={addUserToRequestedList} className={styles.add}>
-          ADD FRIEND
+          FOLLOW
         </button>
       );
     }

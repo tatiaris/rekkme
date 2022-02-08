@@ -9,6 +9,28 @@ export const navigatePath = (path: string): void => {
 };
 
 /**
+ * Puts text around a circular div using some JS logic and math
+ * @param txt text to be displayed as a circle
+ * @param radius radius of the circle
+ * @param classIndex index of the element to put the text around
+ * @param leftPos adjust the left position of the text
+ * @param className class name of the element to put the text around
+ */
+export const circularText = (txt, radius, classIndex, leftPos = 75, className = 'circleText') => {
+  txt = txt.split('');
+  classIndex = document.getElementsByClassName(className)[classIndex];
+
+  const deg = 14;
+  let origin = 300;
+
+  txt.forEach((ea) => {
+    ea = `<p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%;top:-40px;left:${leftPos}px;'>${ea}</p>`;
+    classIndex.innerHTML += ea;
+    origin += deg;
+  });
+};
+
+/**
  * Fetches the session data based on whether a user is logged in or not
  * @returns null if no user is logged in, otherwise the user session data
  */
@@ -104,6 +126,27 @@ export const signupUser = (newUser, setSignupFailed, redirect = '/') => {
     });
 };
 
+export const toggleFriendRequest = async (userId) => {
+  // console.log(`toggling request for ${userId}`);
+  fetch(config.springUrl + `/network/requests/toggle?username=${userId}`, {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+};
+
+export const deleteFriend = async (userId) => {
+  fetch(config.springUrl + `/network/delete?username=${userId}`, {
+    credentials: 'include',
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+};
+
 /**
  * Calls the backend classifier to get processed data out of the raw data
  * @param rawData raw data to be parsed
@@ -124,130 +167,6 @@ export const getRekkData = (rawData, setProcessedRekkData) => {
     .catch((error) => {
       console.error('Error:', error);
     });
-};
-
-/**
- * Puts text around a circular div using some JS logic and math
- * @param txt text to be displayed as a circle
- * @param radius radius of the circle
- * @param classIndex index of the element to put the text around
- * @param leftPos adjust the left position of the text
- * @param className class name of the element to put the text around
- */
-export const circularText = (txt, radius, classIndex, leftPos = 75, className = 'circleText') => {
-  txt = txt.split('');
-  classIndex = document.getElementsByClassName(className)[classIndex];
-
-  const deg = 14;
-  let origin = 300;
-
-  txt.forEach((ea) => {
-    ea = `<p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%;top:-40px;left:${leftPos}px;'>${ea}</p>`;
-    classIndex.innerHTML += ea;
-    origin += deg;
-  });
-};
-
-/**
- * Calls the backend to get the rekks for the user
- * @param setReksToMe callback function to set the reks to me data
- */
-export const getReksToMe = async (setReksToMe) => {
-  try {
-    const res = await fetch(config.springUrl + `/reks`, { credentials: 'include' });
-    const reksData = await res.json();
-    setReksToMe(reksData);
-  } catch (error) {
-    console.log('Error:', error);
-    setReksToMe([]);
-  }
-};
-
-/**
- * Calls the backend to get feed data for the user
- * Includes rekks to and from the uers's immediate friend circle
- * @param setRekActivity callback function to set the rek activity data
- */
-export const getRekActivity = async (setRekActivity) => {
-  try {
-    const res = await fetch(config.springUrl + `/reks/activity`, { credentials: 'include' });
-    const reksData = await res.json();
-    setRekActivity(reksData);
-  } catch (error) {
-    console.log('Error:', error);
-    setRekActivity([]);
-  }
-};
-
-/**
- * Calls the backend to get the user's friends
- * @param setFriendList callback function to set the friend list data
- */
-export const getFriendList = async (setFriendList) => {
-  try {
-    const res = await fetch(config.springUrl + `/network/friends`, { credentials: 'include' });
-    const friendList = await res.json();
-    setFriendList(friendList);
-  } catch (error) {
-    console.log('Error:', error);
-    setFriendList([]);
-  }
-};
-
-/**
- * Calls the backend to get the user's friends
- * @param setFriendList callback function to set the friend list data
- */
-export const getFollowingList = async (setFriendList) => {
-  try {
-    const res = await fetch(config.springUrl + `/network/following`, { credentials: 'include' });
-    const followingList = await res.json();
-    setFriendList(followingList);
-  } catch (error) {
-    console.log('Error:', error);
-    setFriendList([]);
-  }
-};
-
-export const getFollowRequestedList = async (setFriendRequestedList) => {
-  try {
-    const res = await fetch(config.springUrl + `/network/requests/from`, { credentials: 'include' });
-    const friendRequestedList = await res.json();
-    setFriendRequestedList(friendRequestedList);
-  } catch (error) {
-    console.log('Error:', error);
-    setFriendRequestedList([]);
-  }
-};
-
-/**
- * Calls the backend to get the user's rekks to others
- * @param setRekkFromMe callback function to set the rekks from me data
- */
-export const getReksFromMe = async (setRekkFromMe) => {
-  try {
-    const res = await fetch(config.springUrl + `/reks/from`, { credentials: 'include' });
-    const reksData = await res.json();
-    setRekkFromMe(reksData);
-  } catch (error) {
-    console.log('Error:', error);
-    setRekkFromMe([]);
-  }
-};
-
-/**
- * Calls the backend to get the user's queue of rekks to reminded about
- * @param setQueue callback function to set the queue data
- */
-export const getQueue = async (setQueue) => {
-  try {
-    const res = await fetch(config.springUrl + `/reks/queue`, { credentials: 'include' });
-    const reksData = await res.json();
-    setQueue(reksData);
-  } catch (error) {
-    console.log('Error:', error);
-    setQueue([]);
-  }
 };
 
 /**
@@ -305,50 +224,84 @@ export const sendRekResult = (rekId, rekRating, setRatingSubmitted) => {
     });
 };
 
+export const fetchData = async (endpoint, setData, defaultValue) => {
+  try {
+    const res = await fetch(config.springUrl + endpoint, {
+      credentials: 'include'
+    });
+    const data = await res.json();
+    setData(data);
+  } catch (error) {
+    console.error('Error:', error);
+    setData(defaultValue);
+  }
+};
+
+/**
+ * Calls the backend to get the rekks for the user
+ * @param setReksToMe callback function to set the reks to me data
+ */
+export const getReksToMe = async (setReksToMe) => {
+  fetchData('/reks/count', setReksToMe, []);
+};
+
+/**
+ * Calls the backend to get feed data for the user
+ * Includes rekks to and from the uers's immediate friend circle
+ * @param setRekActivity callback function to set the rek activity data
+ */
+export const getRekActivity = async (setRekActivity) => {
+  fetchData('/reks/activity', setRekActivity, []);
+};
+
+/**
+ * Calls the backend to get the user's friends
+ * @param setFriendList callback function to set the friend list data
+ */
+export const getFriendList = async (setFriendList) => {
+  fetchData('/network/friends', setFriendList, []);
+};
+
+/**
+ * Calls the backend to get the user's friends
+ * @param setFriendList callback function to set the friend list data
+ */
+export const getFollowingList = async (setFriendList) => {
+  fetchData('/network/following', setFriendList, []);
+};
+
+export const getFollowRequestedList = async (setFriendRequestedList) => {
+  fetchData('/network/requests/from', setFriendRequestedList, []);
+};
+
+/**
+ * Calls the backend to get the user's rekks to others
+ * @param setRekkFromMe callback function to set the rekks from me data
+ */
+export const getReksFromMe = async (setRekkFromMe) => {
+  fetchData('/reks/from', setRekkFromMe, []);
+};
+
+/**
+ * Calls the backend to get the user's queue of rekks to reminded about
+ * @param setQueue callback function to set the queue data
+ */
+export const getQueue = async (setQueue) => {
+  fetchData('/reks/queue', setQueue, []);
+};
+
 /**
  * Calls the backend to get all the user's notifications
  * @param setAllNotifications callback function to set the all notifications data
  */
 export const getAllNotifications = async (setAllNotifications) => {
-  try {
-    const res = await fetch(config.springUrl + `/reks/results/new`, { credentials: 'include' });
-    const reksData = await res.json();
-    setAllNotifications(reksData);
-  } catch (error) {
-    console.log('Error:', error);
-    setAllNotifications([]);
-  }
+  fetchData('/reks/results/new', setAllNotifications, []);
 };
 
 export const getQuerySearchResults = async (query, setSearchResults) => {
-  try {
-    const res = await fetch(config.springUrl + `/explore/users?q=${query}`, { credentials: 'include' });
-    const reksData = await res.json();
-    setSearchResults(reksData);
-  } catch (error) {
-    console.log('Error:', error);
-    setSearchResults([]);
-  }
+  fetchData(`/explore/users?q=${query}`, setSearchResults, []);
 };
 
 export const fetchQueryUser = async (userId, setQueryUser) => {
-  try {
-    const res = await fetch(config.springUrl + `/explore/users?q=${userId}`, { credentials: 'include' });
-    const userData = await res.json();
-    setQueryUser(userData[0]);
-  } catch (error) {
-    console.log('Error:', error);
-    setQueryUser(null);
-  }
-};
-
-export const toggleFriendRequest = async (userId) => {
-  fetch(config.springUrl + `/network/requests/toggle?username=${userId}`, {
-    credentials: 'include',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ username: userId })
-  });
+  fetchData(`/explore/users?username=${userId}`, setQueryUser, null);
 };
