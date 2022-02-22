@@ -125,5 +125,38 @@ a:hover {
   cursor: pointer;
 }
 
+.toast {
+  text-align: left;
+  background-color: var(--heading-text-color);
+}
+
+.toast-icon {
+  text-align: center;
+  border-radius: 50%;
+  max-width: 200px;
+  justify-content: center;
+  position: absolute;
+}
+
+.toast-content {
+  position: absolute;
+  color: var(--regular-text-color);
+  padding-left: 70px;
+  padding-right: 70px;
+  display: inline-block;
+  text-align: left;
+}
+
+.toast-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.toast-message {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 
 /* GENERAL SETTINGS END */
