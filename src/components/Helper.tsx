@@ -248,10 +248,10 @@ export const getReksToMe = async (setReksToMe) => {
 /**
  * Calls the backend to get feed data for the user
  * Includes rekks to and from the uers's immediate friend circle
- * @param setRekActivity callback function to set the rek activity data
+ * @param setRekCommunity callback function to set the rek activity data
  */
-export const getRekActivity = async (setRekActivity) => {
-  fetchData('/reks/activity', setRekActivity, []);
+export const getRekCommunity = async (setRekActivity) => {
+  fetchData('/reks/community', setRekActivity, []);
 };
 
 /**

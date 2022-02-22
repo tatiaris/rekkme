@@ -2,16 +2,14 @@ import { Header } from '../components/common/Header';
 import { Footer } from '../components/common/Footer';
 import { useEffect, useState } from 'react';
 import { getUserSession } from '../components/Helper';
-import { ToastContainer } from 'react-toastify';
-import { registerForNotifiy } from '../components/Toast';
+import { registerForNotifiy, notify } from '../components/Toast';
+import toast, { Toaster } from 'react-hot-toast';
 import '../components/ui/styles/global.css';
 
 export default function MyApp({ Component, pageProps }) {
   const [userSession, setUserSession] = useState({
     id: '0'
   });
-
-  const [sse, setSse] = useState();
 
   const fetchUserSession = async () => {
     const session = await getUserSession();
@@ -23,7 +21,7 @@ export default function MyApp({ Component, pageProps }) {
   };
 
   const registerSessionNotify = async () => {
-    await registerForNotifiy(userSession, sse);
+    await registerForNotifiy(userSession);
   };
 
   useEffect(() => {
@@ -31,16 +29,25 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
-    registerSessionNotify();
-  }, [userSession]);
+    toast('Here is your toast.', {
+      duration: 4000,
+      position: 'top-center',
+    });
+  }, []);
 
   return (
     <div>
       <Header />
       <Component {...pageProps} userSession={userSession} fetchUserSession={fetchUserSession} endUserSession={endUserSession} />
       <Footer />
-
-      <ToastContainer autoClose={36000} draggable={true} />
+      <Toaster toastOptions={{
+        className: '',
+        duration: 5000,
+        style: {
+          background: "var(--heading-text-color)",
+          color: "var(--regular-text-color)",
+        }}}
+      />
     </div>
   );
 }

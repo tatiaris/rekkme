@@ -11,7 +11,7 @@ module.exports = withPWA({
       fallback: [
         {
           source: '/:path*',
-          destination: `https://rekkme-backend-app.herokuapp.com/:path*`
+          destination: `${process.env.SPRING_DOMAIN}/:path*`
         }
       ]
     };

@@ -1,13 +1,13 @@
 import { fetchEventSource } from '@microsoft/fetch-event-source';
-import { toast } from 'react-toastify';
 import { config } from './config';
 
-const notify = (data) => {
+export const notify = (data) => {
 
+    /*
     const Tst = () => (
         <div className='toast'>
             <div className='toast-icon'>
-                <img src={data.avatar}></img>
+                
             </div>
             <div className='toast-content'>
             <p className='toast-title'>{data.username}</p>
@@ -15,19 +15,13 @@ const notify = (data) => {
             </div>
         </div>
     );
-
-    toast(<Tst />, {
-        position: toast.POSITION.TOP_CENTER,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-    });
+    */
 }
 
 export const registerForNotifiy = async (session) => {
 
+    console.log("HELLOOOOOOOOOOOOO");
+    console.log(config.springUrl);
     if (session === null) return;
     await fetchEventSource(config.springUrl + '/notify/handshake', {
         method: 'GET',
@@ -40,6 +34,7 @@ export const registerForNotifiy = async (session) => {
         },
         onerror(err) {
             console.log('an error was found connecting to sse');
+            console.log(err);
         }
     });
 }
