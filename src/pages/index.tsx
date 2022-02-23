@@ -1,3 +1,4 @@
+import { Rekk } from 'components/interfaces';
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/common/Navbar';
 import { getRekCommunity } from '../components/Helper';
@@ -7,7 +8,7 @@ interface FeedProps {
   userSession: any;
 }
 const Feed = (props): React.ReactNode => {
-  const [rekFeed, setRekFeed] = useState([]);
+  const [rekFeed, setRekFeed] = useState<Rekk[]>([]);
 
   useEffect(() => {
     getRekCommunity(setRekFeed);

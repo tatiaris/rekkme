@@ -31,7 +31,7 @@ export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
     toast('Here is your toast.', {
       duration: 4000,
-      position: 'top-center',
+      position: 'top-center'
     });
   }, []);
 
@@ -40,13 +40,15 @@ export default function MyApp({ Component, pageProps }) {
       <Header />
       <Component {...pageProps} userSession={userSession} fetchUserSession={fetchUserSession} endUserSession={endUserSession} />
       <Footer />
-      <Toaster toastOptions={{
-        className: '',
-        duration: 5000,
-        style: {
-          background: "var(--heading-text-color)",
-          color: "var(--regular-text-color)",
-        }}}
+      <Toaster
+        toastOptions={{
+          className: '',
+          duration: 5000,
+          style: {
+            background: 'var(--heading-text-color)',
+            color: 'var(--regular-text-color)'
+          }
+        }}
       />
     </div>
   );

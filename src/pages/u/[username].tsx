@@ -1,3 +1,4 @@
+import { Rekk, User } from 'components/interfaces';
 import FriendRequestButton from 'components/ui/FriendRequestButton';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -11,10 +12,10 @@ const UserPage = (props): React.ReactNode => {
   const { username } = router.query;
   const user = props.userSession;
   const [selectedTab, setSelectedTab] = useState('for-you');
-  const [reksFromMe, setReksFromMe] = useState([]);
-  const [queryUser, setQueryUser] = useState<any>(null);
-  const [followingList, setFollowingList] = useState<any>(null);
-  const [followRequestedList, setFollowRequestedList] = useState(null);
+  const [reksFromMe, setReksFromMe] = useState<Rekk[]>([]);
+  const [queryUser, setQueryUser] = useState<User>(null);
+  const [followingList, setFollowingList] = useState<User[]>([]);
+  const [followRequestedList, setFollowRequestedList] = useState<User[]>([]);
 
   useEffect(() => {
     if (username) {
