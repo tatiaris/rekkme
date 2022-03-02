@@ -88,12 +88,30 @@ export const Navbar: React.FC<NavbarProps> = (props): React.ReactElement => {
             <img src="/icons/close.svg" alt="" />
           </button>
         </div>
-        {sessionActive && <a href={`/u/${props.userSession.username}`} className={props.pageTitle === "My Rekks" && styles.active}>My Rekks</a>}
-        {sessionActive && <a href={`/rekk`} className={props.pageTitle === "New Rekk" && styles.active}>Rekk Anything</a>}
-        {sessionActive && <a href={`/queue`} className={props.pageTitle === "Queue" && styles.active}>Queue</a>}
-        <a href="/" className={props.pageTitle === "Community" && styles.active}>Community</a>
-        <a href="/leaderboard" className={props.pageTitle === "Leaderboard" && styles.active}>Leaderboards</a>
-        <a href="/discover" className={props.pageTitle === "Discover" && styles.active}>Discover</a>
+        {sessionActive && (
+          <a href={`/u/${props.userSession.username}`} className={props.pageTitle === 'My Rekks' && styles.active}>
+            My Rekks
+          </a>
+        )}
+        {sessionActive && (
+          <a href={`/rekk`} className={props.pageTitle === 'New Rekk' && styles.active}>
+            Rekk Anything
+          </a>
+        )}
+        {sessionActive && (
+          <a href={`/queue`} className={props.pageTitle === 'Queue' && styles.active}>
+            Queue
+          </a>
+        )}
+        <a href="/" className={props.pageTitle === 'Community' && styles.active}>
+          Community
+        </a>
+        <a href="/leaderboard" className={props.pageTitle === 'Leaderboard' && styles.active}>
+          Leaderboards
+        </a>
+        <a href="/discover" className={props.pageTitle === 'Discover' && styles.active}>
+          Discover
+        </a>
         {sessionActive && <a href="/notifications">Notifications</a>}
         {!sessionActive && <a href="/login">Log In</a>}
         {!sessionActive && <a href="/signup">Sign Up</a>}

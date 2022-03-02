@@ -150,7 +150,9 @@ const UserPage = (props): React.ReactNode => {
                 </div>
               </div>
               <div className={`${styles.profile_reks_container} ${styles.from_you_container} ${selectedTab == 'from-you' ? styles.selected : ''}`}>
-                {reksFromMe.map((rek, i) => <RekkFromCard content={rek} key={i} />)}
+                {reksFromMe.map((rek, i) => (
+                  <RekkFromCard content={rek} key={i} />
+                ))}
               </div>
             </div>
           )}

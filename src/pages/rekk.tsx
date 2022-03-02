@@ -43,8 +43,7 @@ const Rekk = (props): React.ReactNode => {
       if (title || text || url) {
         const rawRekkData = { title, text, url };
         getRekkData(rawRekkData, setProcessedRekkData);
-      }
-      else {
+      } else {
         setRekkFromApp(false);
       }
       getFriendList(setFriendList);
@@ -67,7 +66,7 @@ const Rekk = (props): React.ReactNode => {
 
   const triggerSendRekk = () => {
     if (recommendeeList.length > 0) {
-      let rekkData = {}
+      let rekkData = {};
       if (rekkFromApp) {
         rekkData = {
           category: processedRekkData.category,
@@ -81,8 +80,7 @@ const Rekk = (props): React.ReactNode => {
           artist: processedRekkData.artist || '',
           location: processedRekkData.location || ''
         };
-      }
-      else {
+      } else {
         rekkData = {
           category: chosenCategory,
           usernames: recommendeeList,
@@ -128,9 +126,9 @@ const Rekk = (props): React.ReactNode => {
           <br />
           <div className={styles.rekk_form_inputs}>
             <textarea onChange={(e) => setMessageValue(e.target.value)} placeholder="Type a message (optional) ..." />
-            <Spacer value='10px' />
+            <Spacer value="10px" />
             How much will they like it?
-            <Spacer value='10px' />
+            <Spacer value="10px" />
             <div className={styles.slider_container}>
               <input type="range" min="50" max="100" defaultValue="50" className="slider" id="myRange" onChange={(e) => setWagerValue(parseInt(e.target.value))} />
               <div style={{ textAlign: 'right' }}>{wagerValue}</div>
@@ -183,13 +181,18 @@ const Rekk = (props): React.ReactNode => {
             <Spacer />
             <StringInput config={{ name: 'title', type: 'text', placeholder: 'Title*' }} updateFunc={setChosenTitle} />
             <Spacer />
-            {chosenCategory === "music" && (<><StringInput config={{ name: 'artist', type: 'text', placeholder: 'Artist*' }} updateFunc={setChosenArtist} /><Spacer /></>)}
+            {chosenCategory === 'music' && (
+              <>
+                <StringInput config={{ name: 'artist', type: 'text', placeholder: 'Artist*' }} updateFunc={setChosenArtist} />
+                <Spacer />
+              </>
+            )}
             <textarea onChange={(e) => setMessageValue(e.target.value)} placeholder="Send a message..." />
             <Spacer />
             <input type="file" />
-            <Spacer value='10px' />
+            <Spacer value="10px" />
             How much will they like it?*
-            <Spacer value='10px' />
+            <Spacer value="10px" />
             <div className={styles.slider_container}>
               <input type="range" min="0" max="50" defaultValue="0" className="slider" id="myRange" onChange={(e) => setWagerValue(parseInt(e.target.value))} />
               <div style={{ textAlign: 'right' }}>{wagerValue}</div>
@@ -219,7 +222,7 @@ const Rekk = (props): React.ReactNode => {
           )}
         </div>
       </>
-    )
+    );
   }
 };
 
