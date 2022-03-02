@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "chrome": "start chrome http://localhost:3000",
+    "dev": "npm run chrome && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix .",

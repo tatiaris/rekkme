@@ -59,6 +59,11 @@
     display: block;
     padding: 30px 0;
   }
+  .profile_reks_container.from_you_container.selected {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   .profile_categories_container {
     display: flex;
     gap: 20px;
@@ -138,11 +143,25 @@
     display: block;
     padding: 30px 0;
   }
+  .profile_reks_container.from_you_container.selected {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   .profile_categories_container {
     display: flex;
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+  }
+  .network_data_container {
+    padding: 10px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 50px;
+  }
+  .network_data_container>div {
+    width: 100%;
+    text-align: center;
   }
 }
 

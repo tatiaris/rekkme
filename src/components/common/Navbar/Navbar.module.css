@@ -15,7 +15,7 @@
   .search_functionality_container.search_active .nav_search_container {
     width: calc(100vw - 120px);
     overflow: visible;
-    background-color: white;
+    background-color: var(--main-bg-color);
     border-radius: 50px;
     border: 1px solid #ccc;
   }
@@ -177,6 +177,7 @@
     margin-left: 10px;
     background-color: white;
     border-radius: 50px;
+    border: 1px solid #ccc;
   }
   .search_inp_1 {
     background-color: transparent;
@@ -197,28 +198,26 @@
     right: -75vw;
     width: 75vw;
     height: 100vh;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--heading-text-color);
     transition: var(--default-transition-speed);
   }
   .hamburger_menu.show {
     right: 0vw;
   }
   .hamburger_menu a,
+  .hamburger_menu>button,
   .hamburger_menu div {
     font-size: 24px;
-    padding: 20px;
-    text-align: center;
-    color: var(--regular-text-color);
+    padding: 20px 50px;
+    text-align: left;
+    color: var(--main-bg-color) !important;
     text-decoration: none;
   }
-  .hamburger_menu a:nth-child(2n) {
-    background-color: var(--secondary-bg-color);
+  .hamburger_menu a.active {
+    background-color: var(--secondary-text-color) !important;
   }
   .hamburger_menu>button {
     background-color: transparent;
-    color: var(--regular-text-color);
-    font-size: 24px;
-    padding: 20px;
   }
   .close_btn_container {
     padding: 20px !important;
@@ -284,22 +283,26 @@
     right: -400px;
     width: 400px;
     height: 100vh;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--heading-text-color);
     transition: var(--default-transition-speed);
   }
   .hamburger_menu.show {
     right: 0vw;
   }
   .hamburger_menu a,
+  .hamburger_menu>button,
   .hamburger_menu div {
     font-size: 24px;
-    padding: 20px;
-    text-align: center;
-    color: var(--regular-text-color);
+    padding: 20px 50px;
+    text-align: left;
+    color: var(--main-bg-color) !important;
     text-decoration: none;
   }
-  .hamburger_menu a:nth-child(2n) {
-    background-color: var(--secondary-bg-color);
+  .hamburger_menu a.active {
+    background-color: var(--secondary-text-color) !important;
+  }
+  .hamburger_menu>button {
+    background-color: transparent;
   }
   .close_btn_container {
     padding: 20px !important;
@@ -337,6 +340,7 @@
     align-items: center;
     padding: 2px 7px;
     background-color: white;
+    border: 1px solid #ccc;
     border-radius: 50px;
     margin-right: 20px;
   }

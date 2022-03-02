@@ -28,12 +28,12 @@ export default function MyApp({ Component, pageProps }) {
     fetchUserSession();
   }, []);
 
-  useEffect(() => {
-    toast('Here is your toast.', {
-      duration: 4000,
-      position: 'top-center'
-    });
-  }, []);
+  // useEffect(() => {
+  //   toast('Here is your toast.', {
+  //     duration: 4000,
+  //     position: 'top-center'
+  //   });
+  // }, []);
 
   return (
     <div>

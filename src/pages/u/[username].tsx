@@ -39,8 +39,6 @@ const UserPage = (props): React.ReactNode => {
     }
   }, []);
 
-  const reksFromMeList = reksFromMe.map((rek, i) => <RekkFromCard content={rek} key={i} />);
-
   if (!queryUser) {
     return <Navbar userSession={props.userSession} pageTitle="" />;
   } else {
@@ -151,7 +149,7 @@ const UserPage = (props): React.ReactNode => {
                   </div>
                 </div>
               </div>
-              <div className={`profile-reks-container from-you-container ${selectedTab == 'from-you' ? 'selected' : ''}`}>
+              <div className={`${styles.profile_reks_container} ${styles.from_you_container} ${selectedTab == 'from-you' ? styles.selected : ''}`}>
                 {reksFromMe.map((rek, i) => <RekkFromCard content={rek} key={i} />)}
               </div>
             </div>
