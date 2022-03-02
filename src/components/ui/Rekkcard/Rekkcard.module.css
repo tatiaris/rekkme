@@ -1,0 +1,77 @@
+/* Phone Screen */
+
+@media (max-width: 419px) {
+  .rekkcard {
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--regular-text-color);
+    background-color: var(--secondary-bg-color);
+    padding: 15px 10px;
+  }
+  .rekkcard .details_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  .rekkcard .action_btns_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--main-bg-color);
+    border-radius: 5px;
+  }
+  .rekkcard .action_btns_container button {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    color: var(--regular-text-color);
+  }
+}
+
+
+/* Phone + Tablet Screen */
+
+@media (min-width: 420px) {
+  .rekkcard {
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--regular-text-color);
+    background-color: var(--secondary-bg-color);
+    padding: 15px 10px;
+  }
+  .rekkcard .details_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  .rekkcard .action_btns_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--main-bg-color);
+    border-radius: 5px;
+  }
+  .rekkcard .action_btns_container button {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    color: var(--regular-text-color);
+  }
+}
+
+
+/* Horizontal Tablet Screen */
+
+@media (min-width: 720px) {}
+
+
+/* Laptop Screen */
+
+@media (min-width: 1080px) {}
+
+
+/* PC Screen */
+
+@media (min-width: 1440px) {}

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Rekkcard.module.css';
 
 /**
  * RekkCard component
@@ -10,8 +11,8 @@ interface RekkCardProps {
 export const RekkCard: React.FC<RekkCardProps> = (props) => {
   const content = props.content;
   return (
-    <div className="rekkcard">
-      <div className="details-container">
+    <div className={styles.rekkcard}>
+      <div className={styles.details_container}>
         <div>
           <img width="40px" src={content.fromUser.imageUrl} alt="" style={{ borderRadius: '50%' }} />
         </div>
@@ -35,7 +36,7 @@ export const RekkCard: React.FC<RekkCardProps> = (props) => {
           <img width="80px" src={content.imageUrl} alt="" style={{ borderRadius: '5px' }} />
         </div>
       </div>
-      <div className="action-btns-container">
+      <div className={styles.action_btns_container}>
         <button>
           <img width="20px" src="/icons/like.svg" alt="" />
         </button>

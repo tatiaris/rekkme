@@ -1,0 +1,39 @@
+/* Phone Screen */
+
+@media (max-width: 424px) {
+  .feed_container {
+    padding: 0px 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+/* Phone + Tablet Screen */
+
+@media (min-width: 425px) {
+  .feed_container {
+    padding: 0px 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+/* Horizontal Tablet Screen */
+
+@media (min-width: 768px) {}
+
+
+/* Laptop Screen */
+
+@media (min-width: 1024px) {}
+
+
+/* PC Screen */
+
+@media (min-width: 1440px) {}
