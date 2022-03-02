@@ -35,6 +35,7 @@ const UserPage = (props): React.ReactNode => {
     if (user) {
       getFollowingList(setFollowingList);
       getFollowRequestedList(setFollowRequestedList);
+      getReksFromMe(setReksFromMe);
     }
   }, []);
 
@@ -151,7 +152,7 @@ const UserPage = (props): React.ReactNode => {
                 </div>
               </div>
               <div className={`profile-reks-container from-you-container ${selectedTab == 'from-you' ? 'selected' : ''}`}>
-                <>{reksFromMeList}</>
+                {reksFromMe.map((rek, i) => <RekkFromCard content={rek} key={i} />)}
               </div>
             </div>
           )}

@@ -69,6 +69,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--heading-text-color);
   }
   .blob_points {
     background-image: url(/misc/blob.svg);

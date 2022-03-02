@@ -17,6 +17,7 @@
     overflow: visible;
     background-color: white;
     border-radius: 50px;
+    border: 1px solid #ccc;
   }
   .search_inp_1 {
     background-color: transparent;
@@ -37,28 +38,26 @@
     right: -75vw;
     width: 75vw;
     height: 100vh;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--heading-text-color);
     transition: var(--default-transition-speed);
   }
   .hamburger_menu.show {
     right: 0vw;
   }
   .hamburger_menu a,
+  .hamburger_menu>button,
   .hamburger_menu div {
     font-size: 24px;
-    padding: 20px;
-    text-align: center;
-    color: var(--regular-text-color);
+    padding: 20px 50px;
+    text-align: left;
+    color: var(--main-bg-color) !important;
     text-decoration: none;
   }
-  .hamburger_menu a:nth-child(2n) {
-    background-color: var(--secondary-bg-color);
+  .hamburger_menu a.active {
+    background-color: var(--secondary-text-color) !important;
   }
   .hamburger_menu>button {
     background-color: transparent;
-    color: var(--regular-text-color);
-    font-size: 24px;
-    padding: 20px;
   }
   .close_btn_container {
     padding: 20px !important;
@@ -115,20 +114,24 @@
     position: absolute;
     height: 0px;
     overflow: hidden;
-    background-color: white;
+    background-color: var(--secondary-bg-color);
     z-index: 5;
   }
   .search_functionality_container * {
-    color: var(--main-bg-color);
+    color: var(--regular-text-color);
   }
   .search_functionality_container.search_active .search_results_container.results_available {
     overflow: visible;
   }
-  .search_result {
+  .search_results_container .search_result:last-child {
+    border-bottom: none;
+    border-radius: 20px;
+  }
+  .search_results_container .search_result {
     padding: 10px;
     display: flex;
-    border-bottom: 1px solid #ccc;
-    border-radius: 20px;
+    border-bottom: 1px solid var(--heading-text-color);
+    border-radius: 0px;
     text-decoration: none;
   }
   .search_result_img_container {
@@ -149,7 +152,7 @@
   }
   .search_result_username {
     font-size: 18px;
-    color: var(--secondary-bg-color);
+    color: var(--heading-text-color);
   }
 }
 

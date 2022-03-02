@@ -20,7 +20,7 @@ export const Notification: React.FC<NotificationProps> = (props) => {
           </div>
           <div>
             <button className="icon-btn" onClick={() => props.setShowNotification(false)}>
-              <img width={40} height={40} src="/icons/close-dark.svg" alt="" />
+              <img width={40} height={40} src="/icons/close.svg" alt="" />
             </button>
           </div>
         </div>

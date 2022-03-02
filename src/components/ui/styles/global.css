@@ -1,6 +1,7 @@
 /* GENERAL SETTINGS START */
 
-:root {
+
+/* :root {
   --main-bg-color: #2F1C4C;
   --secondary-bg-color: #463263;
   --regular-text-color: white;
@@ -10,6 +11,23 @@
   --default-font-size: 18px;
   --default-font-family: 'Roboto', sans-serif;
   --default-font-weight: 400;
+  --default-border-radius: 5px;
+  --default-transition-speed: 200ms;
+  --default-padding: 10px;
+} */
+
+:root {
+  --main-bg-color: white;
+  --secondary-bg-color: #E5BE7D;
+  --heading-text-color: #2F1C4C;
+  --regular-text-color: black;
+  --secondary-text-color: #463263;
+  --success-color: #abd79f;
+  --failure-color: #ff5252;
+  --default-font-size: 18px;
+  --default-font-family: 'Roboto', sans-serif;
+  --default-font-weight: 400;
+  --bold-font-weight: 500;
   --default-border-radius: 5px;
   --default-transition-speed: 200ms;
   --default-padding: 10px;
@@ -31,6 +49,11 @@ body {
 h4,
 h5 {
   margin: 0 !important;
+}
+
+b,
+strong {
+  font-weight: var(--bold-font-weight);
 }
 
 input[type=text] {
@@ -124,5 +147,28 @@ a:hover {
   padding: 0px;
   cursor: pointer;
 }
+
+.notification-container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: transparent;
+  width: 100%;
+  color: var(--main-bg-color);
+}
+
+.notification-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--heading-text-color);
+}
+
+.notification-title {
+  font-weight: 500;
+}
+
 
 /* GENERAL SETTINGS END */

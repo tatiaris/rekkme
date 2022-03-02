@@ -23,8 +23,8 @@ export interface Rekk {
   imageUrl: string;
   description: string;
   tags: string[];
-  artist: string;
-  location: string;
+  artist?: string;
+  location?: string;
   author?: string;
   likes?: number;
   comments?: number;

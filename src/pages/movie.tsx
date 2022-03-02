@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import StringInput from '../components/ui/StringInput';
+import StringInput from '../components/ui/inputs/StringInput';
 
 const Movie = (): React.ReactNode => {
   const [movies, setMovies] = useState([]);
